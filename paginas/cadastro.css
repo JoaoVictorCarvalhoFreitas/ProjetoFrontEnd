@@ -1,0 +1,6 @@
+body{
+    background-image: url('../fundoCadastro.jpg');
+    background-size: cover; /* Opcional: Ajusta a imagem para cobrir todo o elemento */
+    background-position: center; /* Opcional: Centraliza a imagem no elemento */
+    background-repeat: no-repeat; /* Opcional: Impede a repetição da imagem */
+}
