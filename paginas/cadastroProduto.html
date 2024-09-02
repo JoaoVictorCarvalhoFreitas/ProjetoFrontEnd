@@ -53,10 +53,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Preço</label>
-                            <input type="number" class="form-control" id="productPrice" required>
+                            <input type="number" step="0.01" class="form-control" id="productPrice" required>
                         </div>
                         <div class="mb-3">
-                            <label for="productImage" class="form-label">URL da Imagem do Produto</label>
+                            <label for="productImage" class="form-label"> da Imagem do Produto</label>
                             <input type="text" class="form-control" id="productImage" placeholder="Digite a URL da imagem do produto">
                             <img id="imagePreview" class="img-fluid mt-2" src="" alt="Prévia da Imagem">
                         </div>
@@ -76,7 +76,7 @@
         socket.on('refresh', () => {
           window.location.reload();
         });
-        </script>
+    </script>
 
 </body>
 </html>
