@@ -1,6 +1,11 @@
 let listaUsuarios = [['admin','123',"Joao1234!"]]
 
 function verificaUsuario(email,nome) {
+    document.getElementById('campoObrigatorio').style.display = 'none';
+    if (email == '' || nome == '') {
+        document.getElementById('campoObrigatorio').style.display = 'block';
+        return false
+    }
 
     for (let i = 0; i < listaUsuarios.length; i++) {
         if (nome == listaUsuarios[i][0] && email == listaUsuarios[i][1]) {
@@ -18,6 +23,7 @@ function verificaUsuario(email,nome) {
 
 
 function validaSenha(senha,senha2) {
+
     if (senha != senha2) {
         document.getElementById('senhadiferente').style.display = 'block';
         return
@@ -44,6 +50,7 @@ function validaSenha(senha,senha2) {
 
 
 function mostrarSenha() {
+    
     const campoSenha = document.getElementById('senha');
     const campoSenha2 = document.getElementById('senha2');
 
@@ -66,20 +73,23 @@ function cadastrar() {
     const senha = document.getElementById('senha').value;
     const senha2 = document.getElementById('senha2').value;
     
-    let validaSenh = validaSenha(senha,senha2)
+    let validasenha = validaSenha(senha,senha2)
     
-    if(!validaSenh){
+    if(!validasenha){
         return;
     }
     
     let validaUsuario = verificaUsuario(email,nome)
     console.log("valida usuario: "+validaUsuario)
+
     
     if(validaUsuario){
+        document.getElementById('usuarioCadastrado').style.display = 'block';
         listaUsuarios.push([nome,email,senha])
         console.log(listaUsuarios)
     }else{
-        return;
+        document.getElementById('usuarioCadastrado').style.display = 'none';
+
     }
 
 }

@@ -34,19 +34,25 @@
                     <label for="senha" class="form-label">Confirmar a Senha</label>
                     <input type="password" class="form-control" id="senha2">
                 </div>
+                <div id="divBotoes">
+                    <div>
+                        <button onclick="cadastrar()" type="button" class="btn btn-primary" id="botaoCadastrar">cadastrar</button>
+                        <input onclick="mostrarSenha()" type="checkbox" > Mostrar senha
+                    </div>
+                    <a href="login.html" class="btn btn-primary" id="botaoLogin">login</a>
 
-                <button onclick="cadastrar()" type="button" class="btn btn-primary">cadastrar</button>
-                <input onclick="mostrarSenha()" type="checkbox" > Mostrar senha
+                </div>
             </form>
-            <a href="login.html" class="btn btn-primary">login</a>
 
             <br/>
-            <label id="campoObrigatorio"   class="error-label" >Os campos são obrigatórios.</label>
+            
+            <label id="campoObrigatorio"   class="error-label" >todos os campos são obrigatórios.</label>
             <label id="tamanhoSenha"  class="error-label">A senha deve ter entre 8 e 16 caracteres.</label>
             <label id="senhaRegex" class="error-label">O campo senha precisa ter: 1 caracter especial e 1 letra
                 maiúscula.</label>
             <label id="senhadiferente" class="error-label">As senhas não são iguais.</label>
-            <label id="usuarioJaexiste">Usuario ja existe</label>
+            <label id="usuarioJaexiste" class="error-label">Usuario ja existe</label>
+            <label id="usuarioCadastrado" class="error-label">Usuario cadastrado com sucesso</label>
             
             <br/>
             
