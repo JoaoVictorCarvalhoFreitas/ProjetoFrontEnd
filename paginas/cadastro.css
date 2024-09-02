@@ -1,6 +1,34 @@
 body{
-    background-image: url('../fundoCadastro.jpg');
-    background-size: cover; /* Opcional: Ajusta a imagem para cobrir todo o elemento */
-    background-position: center; /* Opcional: Centraliza a imagem no elemento */
-    background-repeat: no-repeat; /* Opcional: Impede a repetição da imagem */
+    background-image: url('fundoCadastro.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.error-label{
+    display: none;
+    color: red;
+}
+
+#usuarioJaexiste{
+    display: none;
+    color: red;
+}
+
+.imagePreview{
+    width: 10px;
+    height: 10px;
+    border: 2px solid red;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    overflow: hidden;
+}
+.card-menu {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    object-fit: cover; /* Ajusta a imagem para cobrir a área do card */
+    height: 200px; /* Define uma altura fixa para a imagem */
 }
