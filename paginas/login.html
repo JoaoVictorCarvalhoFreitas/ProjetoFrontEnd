@@ -11,9 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nerko+One&display=swap" rel="stylesheet">
     <link rel="icon" type="imagem/svg+xml" href="src/coffee-bean-filled-roast-brew-svgrepo-com.svg">
     <link rel="stylesheet" href="styles/login.css">
-    <script src="scripts/login.js"></script>
     <title>Login</title>
-
+    
 </head>
 <body>
     <div class="blur"></div>
@@ -22,19 +21,15 @@
             <h1>Login</h1>
             <form>
                 <div class="email-login">
-                    <label for="email" class="email-label">Email</label>
-                    <input type="email" class="email-input" id="email" required>
+                    <input type="email" name="email" class="email-input" id="email-login" placeholder="Email" required>
                 </div>
                 <div class="senha-login">
-                    <label for="senha" class="senha-label">Senha</label>
-                    <div class="show-eye">
-                        <input type="password" class="senha-input" id="senha" required>
-                        <input type="checkbox"
-                        id="mostrarSenha" onclick="mostrarSenha()">
-                        <label for="mostrarSenha" class="label-mostrar">
-                            <span for="mostrarSenha"><img src="src/eye-svgrepo-com.svg"/></span>
-                        </label>
-                    </div>
+                    <input type="password" class="senha-input" id="senha-login" placeholder="Senha" required>
+                    <input type="checkbox"
+                    id="mostrarSenha" name="mostrarSenha">
+                    <label for="mostrarSenha" class="label-mostrar">
+                        <span for="mostrarSenha"><img id="eye" src="src/eye-svgrepo-com.svg"/></span>
+                    </label>
                 </div>
                 <div class="btn-signup">
                     <button type="submit" class="btn btn-primary" id="botaoEntrar">Entrar</button>
@@ -50,12 +45,12 @@
                     <input type="text" class="nome-input" id="nome" required>
                 </div>
                 <div class="email-cadsatro">
-                    <label for="email" class="email-label">Email</label>
-                    <input type="email" class="email-input" id="email" required>
+                    <label for="email" class="email-label-signup">Email</label>
+                    <input type="email" class="email-input" id="email-cadastro" required>
                 </div>
                 <div class="senha-cadsatro">
-                    <label for="senha" class="senha-label">Senha</label>
-                    <input type="password" class="senha-input" id="senha" required>
+                    <label for="senha" class="senha-label-signup">Senha</label>
+                    <input type="password" class="senha-input" id="senha-cadastro" required>
                 </div>
                 <div class="confirmar-senha-cadsatro">
                     <label for="confirmar-senha" class="confirmar-senha-label">Confirmar Senha</label>
@@ -71,5 +66,6 @@
             <img src="src//kitescritorio_moidos.webp">
         </aside>
     </div>
+    <script src="scripts/login.js"></script>
 </body>
 </html>

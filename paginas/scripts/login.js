@@ -12,17 +12,35 @@ function mostrarCadastro() {
     var cadastro = document.getElementById("cadastro-side");
     login.style.transition = "ease-in-out 0.5s"
     cadastro.style.transition = "ease-in-out 0.5s"
+    login.style.opacity = 0;
+    setTimeout(HideLogin,600);
+    cadastro.style.opacity = 0;
+    cadastro.style.display = "flex";
+    setTimeout(ShowSignup, 600);
     
-    for (var i = 1; i > 0; i -= 0.1) {
-        login.style.opacity -= 1;
-    }
-    if (login.style.opacity == 0) {
-        login.style.display = "none";
-    }
-    for (var i = 1; i = 1; i += 0.1) {
-        cadastro.style.opacity += 1;
-    }
-    if (cadastro.style.opacity == 1) {
-        cadastro.style.display = "flex";
-    }
 }
+
+function HideLogin() {
+    var login = document.getElementById("login-side");
+    login.style.display = "none";
+}
+
+
+function ShowSignup() {
+    var cadastro = document.getElementById("cadastro-side");
+    cadastro.style.opacity = 1;
+}
+
+var checkbox = document.getElementById("mostrarSenha");
+
+checkbox.addEventListener("click", function() {
+    var senha = document.getElementById("senha-login");
+    var img = document.getElementById("eye");
+    if (checkbox.checked) {
+        senha.type = "text";
+        img.src = "src/eye-off-svgrepo-com.svg";
+    } else {
+        senha.type = "password";
+        img.src = "src/eye-svgrepo-com.svg";
+    }
+});
