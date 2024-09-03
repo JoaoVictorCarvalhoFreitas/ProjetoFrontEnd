@@ -33,7 +33,7 @@
                 </div>
                 <div class="btn-signup">
                     <button onclick="logar(event)" class="btn btn-primary" id="botaoEntrar">Entrar</button>
-                    
+
                     <a href="#cadastro" onclick="mostrarLogin_Cadastro()">Não tenho uma conta</a>
                 </div>
             </form>
@@ -42,25 +42,44 @@
             <h1>Cadastro</h1>
             <form>
                 <div class="nome-cadsatro">
-                    <input type="text" class="nome-input" id="nome" placeholder="Nome" required>
+                    <input type="text" class="nome-input" id="nome" placeholder="Nome" >
                 </div>
                 <div class="email-cadsatro">
-                    <input type="email" class="email-input" id="email-cadastro" placeholder="Email" required>
+                    <input type="email" class="email-input" id="email-cadastro" placeholder="Email" >
                 </div>
                 <div class="senha-cadsatro">
-                    <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha" required>
+                    <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha" >
                 </div>
                 <div class="confirmar-senha-cadsatro">
-                    <input type="password" class="confirmar-senha-input" id="confirmar-senha" placeholder="Confirmar Senha" required>
+                    <input type="password" class="confirmar-senha-input" id="confirmar-senha" placeholder="Confirmar Senha" >
                     <div class="mostrar-senha">
                         <input type="checkbox" id="checkbox" name="checkbox" onclick="mostrarSenhaSignup()">
                         <label for="checkbox">Mostrar Senha</label> 
                     </div>
                 </div>
-                <div class="btn-signup">
-                    <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
-                    <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
+                <div class="btn-signup">    
+
+                    <button onclick="cadastrar(event)" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+
                 </div>
+                <div id="div_campos_verificacoes">
+                    <div><label id="tamanhoSenha"  class="error-label">A senha deve ter entre 8 e 16 caracteres.</label></div>
+                    <div>
+                        <label id="senhaRegex" class="error-label">O campo senha precisa ter: 1 caracter especial e 1 letra
+                            maiúscula.</label>
+                    </div>
+                    <div>
+                        <label id="senhadiferente" class="error-label">As senhas não são iguais.</label>
+                    </div>
+                    <div>
+                        <label id="usuarioJaexiste" class="error-label">Usuario ja existe</label>
+                    </div>
+                    <div>
+                        <label id="usuarioCadastrado" class="error-label">Usuario cadastrado com sucesso</label>
+
+                    </div>
+                </div>
+                <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
             </form>
         </div>
         <aside id="image">

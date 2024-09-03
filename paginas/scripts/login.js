@@ -4,12 +4,16 @@ var listaUsuario = [['joao','joao@joao','1234']]
 
 //troca entre a aba login e cadastro
 function mostrarLogin_Cadastro() {
+
+    
     var img = document.getElementById("image");
     var card = document.getElementById("card");
 
 
     var login = document.getElementById("login-side");
     var cadastro = document.getElementById("cadastro-side");
+    
+    
 
     if (login.style.display == "none") {
         cadastro.style.opacity = 0;
@@ -180,11 +184,13 @@ function validaSenha(senha,senha2) {
 
 
 //realiza as validações anteriores e da um push desse usuario na lista de usuarios
-function cadastrar() {
-    const email = document.getElementById('email').value;
-    const nome = document.getElementById('nome').value;
-    const senha = document.getElementById('senha').value;
-    const senha2 = document.getElementById('senha2').value;
+function cadastrar(event) {
+
+
+    const email = document.getElementById('email-cadastro').value;
+    const nome = document.getElementById('nome-cadastro').value;
+    const senha = document.getElementById('senha-cadastro').value;
+    const senha2 = document.getElementById('confirmar-senha').value;
     
     let validasenha = validaSenha(senha,senha2)
     
@@ -200,6 +206,7 @@ function cadastrar() {
         console.log('usuario cadastrado com sucesso')
     }else{
         document.getElementById('usuarioCadastrado').style.display = 'none';
+        event.preventDefault()
     }
 
 }
