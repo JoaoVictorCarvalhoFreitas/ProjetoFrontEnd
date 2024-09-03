@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nerko+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="icon" type="imagem/svg+xml" href="src/coffee-bean-filled-roast-brew-svgrepo-com.svg">
     <title>Login</title>
+
 </head>
 <body>
+    <div class="blur"></div>
     <div class="card">
         <div class ="login-side">
             <h1>Login</h1>
             <form>
                 <div class="email">
                     <label for="email" class="email-label">Email</label>
-                    <input type="email" class="email-input" id="email">
+                    <input type="email" class="email-input" id="email" required>
                 </div>
                 <div class="senha">
                     <label for="senha" class="senha-label">Senha</label>
                     <div class="show-eye">
-                        <input type="password" class="senha-input" id="senha">
-                        <input type="checkbox" onclick="mostrarSenha()">
-                        <span><img src="src/eye-svgrepo-com.svg"/></span>
+                        <input type="password" class="senha-input" id="senha" required>
+                        <input type="checkbox"
+                        id="mostrarSenha" onclick="mostrarSenha()">
+                        <label for="mostrarSenha">
+                            <span for="mostrarSenha"><img src="src/eye-svgrepo-com.svg"/></span>
+                        </label>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary" id="botaoEntrar">Entrar</button>
+                <div class="btn-signup">
+                    <button type="submit" class="btn btn-primary" id="botaoEntrar">Entrar</button>
+                    <a href="#cadastro">Não tenho uma conta</a>
+                </div>
             </form>
         </div>
         <div class="cadastro-side">
@@ -30,25 +46,28 @@
             <form>
                 <div class="nome">
                     <label for="nome" class="nome-label">Nome</label>
-                    <input type="text" class="nome-input" id="nome">
+                    <input type="text" class="nome-input" id="nome" required>
                 </div>
                 <div class="email">
                     <label for="email" class="email-label">Email</label>
-                    <input type="email" class="email-input" id="email">
+                    <input type="email" class="email-input" id="email" required>
                 </div>
                 <div class="senha">
                     <label for="senha" class="senha-label">Senha</label>
-                    <input type="password" class="senha-input" id="senha">
+                    <input type="password" class="senha-input" id="senha" required>
                 </div>
                 <div class="confirmar-senha">
                     <label for="confirmar-senha" class="confirmar-senha-label">Confirmar Senha</label>
-                <div class="input-show">
-                    <input type="password" class="confirmar-senha-input" id="confirmar-senha">
-                    <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
+                    <div class="input-show">
+                        <input type="password" class="confirmar-senha-input" id="confirmar-senha" required>
+                        <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+            </form>
+        </div>
         <aside>
-            <img src="src/Baggio_coffe_img.png">
+            <img src="src//kitescritorio_moidos.webp">
         </aside>
     </div>
 </body>

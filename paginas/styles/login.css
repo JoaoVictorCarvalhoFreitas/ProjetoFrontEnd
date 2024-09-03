@@ -1,6 +1,132 @@
 body {
-    background: url("src/fundoCadastro.png");
-    background-size: cover;
+    background-image: url('src/fundoCadastro.png');
+    background-size:cover;
     background-position: center; 
     background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+}
+
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.349);
+    backdrop-filter: blur(2px);
+}
+
+.card {
+    place-self: center;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 2vi;
+    z-index: 999999999;
+    box-shadow: 4px 4px 20px 10px rgba(0, 0, 0, 0.639);
+}
+
+h1 {
+    font-family:"Merriweather", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.login-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:40px;
+
+}
+
+.email,.senha,.nome,.confirmar-senha {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.show-eye {
+    display:inline-block;
+}
+
+span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.btn-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    button {
+        cursor: pointer;
+        width: 7rem;
+        height: 2.5rem;
+        font-size: large;
+        outline: none;
+        background-color: rgb(121, 77, 41);
+        border:none;
+        color: white;
+        border-radius: 0.5rem;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+        animation: ease-out 0.5s;
+    }
+    
+    button:active {
+        background-color: rgb(116, 75, 41);
+        transform: scale(0.9);
+        animation: ease-out 0.2s;
+    }
+}
+
+.cadastro-side {
+    display: none;
+}
+
+aside {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(105, 66, 35);
+    flex-direction: column;
+    border-bottom-right-radius: 1vi;
+    border-top-right-radius: 1vi;
+
+    img {
+        height: 45vh;
+        width: 20vw;
+        filter: drop-shadow(15px 15px 5px rgba(0, 0, 0, 0.671));
+    }
 }
