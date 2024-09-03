@@ -33,7 +33,7 @@ body {
     width: 50vw;
     height: 70vh;
     border-radius: 1.2vi;
-    z-index: 999999999;
+    z-index: 1;
     box-shadow: 4px 4px 20px 10px rgba(0, 0, 0, 0.639);
     transition: ease-in-out 0.5s;
 }
@@ -138,7 +138,7 @@ span {
     }
 }
 
-.btn-signup {
+.btn-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,6 +233,18 @@ a:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: -0.5rem;
+}
+
+.confirmar-senha-cadsatro {
+    margin-top: -1rem;
+}
+
+.requisitos-senha, .compare-senha {
+    width: 15rem;
+    label{
+        font-size: small;
+    }
 }
 
 #checkbox {
@@ -244,13 +256,43 @@ a:hover {
 
 
 .mostrar-senha {
-    margin-top: 0.7rem;
     display: flex;
     width: 16rem;
     align-items: center;
     font-family:"Merriweather", sans-serif;
     font-size: small;
 
+}
+
+.btn-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    button {
+        cursor: pointer;
+        width: 7rem;
+        height: 2.5rem;
+        font-size: large;
+        outline: none;
+        background-color:var(--button_color);
+        border:none;
+        color: white;
+        border-radius: 0.5rem;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+        animation: ease-out 0.5s;
+    }
+    
+    button:active {
+        background-color: rgb(116, 75, 41);
+        transform: scale(0.9);
+        animation: ease-out 0.2s;
+    }
 }
 
 aside {

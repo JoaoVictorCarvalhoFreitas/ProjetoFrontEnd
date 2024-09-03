@@ -34,7 +34,7 @@
                         <span for="mostrarSenha"><img id="eye" src="src/eye-svgrepo-com.svg"/></span>
                     </label>
                 </div>
-                <div class="btn-signup">
+                <div class="btn-login">
                     <button onclick="logar(event)" class="btn btn-primary" id="botaoEntrar">Entrar</button>
 
                     <a href="#cadastro" onclick="mostrarLogin_Cadastro()">Não tenho uma conta</a>
@@ -55,43 +55,28 @@
                 </div>
                 <div class="senha-cadsatro">
                     <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha" >
+                    <div class="requisitos-senha">
+                        <label class="error-label">A senha deve conter:<br/>
+                            Mínimo 8 caracteres.<br/>
+                            1 caracter especial. <br/>
+                            1 letra maiúscula.
+                        </label>
+                    </div>
                 </div>
                 <div class="confirmar-senha-cadsatro">
                     <input type="password" class="confirmar-senha-input" id="confirmar-senha" placeholder="Confirmar Senha" >
+                    <div class="compare-senha">
+                        <label id="senhadiferente" class="error-label" style="display: none;">As senhas não são iguais.</label>
+                    </div>
                     <div class="mostrar-senha">
                         <input type="checkbox" id="checkbox" name="checkbox" onclick="mostrarSenhaSignup()">
                         <label for="checkbox">Mostrar Senha</label> 
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div class="btn-signup">    
-
                     <button onclick="cadastrar(event)" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
-
-=======
-                <div class="btn-signup">
-                    <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
-                    <a href="" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
->>>>>>> 943bbe29cc742dae9ec94c19549004e01a3e991b
+                    <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
                 </div>
-                <div id="div_campos_verificacoes">
-                    <div><label id="tamanhoSenha"  class="error-label">A senha deve ter entre 8 e 16 caracteres.</label></div>
-                    <div>
-                        <label id="senhaRegex" class="error-label">O campo senha precisa ter: 1 caracter especial e 1 letra
-                            maiúscula.</label>
-                    </div>
-                    <div>
-                        <label id="senhadiferente" class="error-label">As senhas não são iguais.</label>
-                    </div>
-                    <div>
-                        <label id="usuarioJaexiste" class="error-label">Usuario ja existe</label>
-                    </div>
-                    <div>
-                        <label id="usuarioCadastrado" class="error-label">Usuario cadastrado com sucesso</label>
-
-                    </div>
-                </div>
-                <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
             </form>
         </div>
         <aside id="image">
