@@ -1,22 +1,22 @@
 body {
-    background-color: rgb(46, 45, 45);
+    background-color: rgb(44, 30, 30);
 }
 
 .prateleira {
     display: flex;
     justify-content: space-around;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 5% 10% 5% 10%;
 }
 
 .tipo-cafe {
     color: rgb(245, 234, 219);
     text-align: center;
-    margin: 5%;
 }
 
 .tamanho-card {
     width: 15rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
 }
 
 .texto-produto {
@@ -36,4 +36,5 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-right: 10%;
 }
