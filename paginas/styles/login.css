@@ -28,7 +28,7 @@ body {
     flex-direction: row;
     width: 50vw;
     height: 70vh;
-    border-radius: 2vi;
+    border-radius: 1.2vi;
     z-index: 999999999;
     box-shadow: 4px 4px 20px 10px rgba(0, 0, 0, 0.639);
 }
@@ -54,18 +54,31 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap:40px;
-
+    gap:50px;
+    width: 100%;
 }
 
-.email,.senha,.nome,.confirmar-senha {
+.email-login,.senha-login{
     display: flex;
     flex-direction: column;
-    
 }
 
 .show-eye {
-    display:inline-block;
+    display:inline-flex;
+}
+
+#mostrarSenha {
+    display: none;
+}
+
+.label-mostrar {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
 }
 
 span {
@@ -109,6 +122,16 @@ span {
     }
 }
 
+a{
+    text-decoration: none;
+    color:black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:rgb(105, 66, 35);
+}
+
 .cadastro-side {
     display: none;
 }
@@ -130,3 +153,4 @@ aside {
         filter: drop-shadow(15px 15px 5px rgba(0, 0, 0, 0.671));
     }
 }
+
