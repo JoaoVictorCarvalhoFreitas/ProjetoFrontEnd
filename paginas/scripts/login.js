@@ -15,7 +15,7 @@ function mostrarLogin_Cadastro() {
         cadastro.style.opacity = 0;
         setTimeout(HideCadastro,600);
         img.style.borderRadius = "0 1vi 1vi 0"
-        img.style.transition = "ease-in 0.5s"
+        img.style.transition = "ease-out 0.5s"
         img.style.transform = "translateX(100%)"
         setTimeout(row, 600);
         login.style.opacity = 1;
