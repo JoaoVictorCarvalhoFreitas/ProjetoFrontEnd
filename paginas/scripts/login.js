@@ -73,30 +73,32 @@ function row() {
 
 
 
-var checkbox1 = document.getElementById("mostrarSenha");
+function mostrarSenhaLogin() {
+    var checkbox1 = document.getElementById("mostrarSenha");
+    checkbox1.addEventListener("click", function() {
+        var senha = document.getElementById("senha-login");
+        var img = document.getElementById("eye");
+        if (checkbox1.checked) {
+            senha.type = "text";
+            img.src = "src/eye-off-svgrepo-com.svg";
+        } else {
+            senha.type = "password";
+            img.src = "src/eye-svgrepo-com.svg";
+        }
+    });
+}
 
-checkbox.addEventListener("click", function() {
-    var senha = document.getElementById("senha-login");
-    var img = document.getElementById("eye");
-    if (checkbox1.checked) {
-        senha.type = "text";
-        img.src = "src/eye-off-svgrepo-com.svg";
-    } else {
-        senha.type = "password";
-        img.src = "src/eye-svgrepo-com.svg";
-    }
-});
-
-var checkbox2 = document.getElementById("checkbox");
-
-checkbox.addEventListener("click", function() {
-    var senha = document.getElementById("senha-cadastro");
-    var confirmsenha = document.getElementById("confirmar-senha");
-    if (checkbox2.checked) {
-        senha.type = "text";
-        confirmsenha.type = "text";
-    } else {
-        senha.type = "password";
-        confirmsenha.type = "password";
-    }
-});
+function mostrarSenhaSignup() {
+    var checkbox2 = document.getElementById("checkbox");
+    checkbox2.addEventListener("click", function() {
+        var senha = document.getElementById("senha-cadastro");
+        var confirmsenha = document.getElementById("confirmar-senha");
+        if (checkbox2.checked) {
+            senha.type = "text";
+            confirmsenha.type = "text";
+        } else {
+            senha.type = "password";
+            confirmsenha.type = "password";
+        }
+    });
+}
