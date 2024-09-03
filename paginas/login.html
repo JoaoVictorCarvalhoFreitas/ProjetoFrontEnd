@@ -18,7 +18,10 @@
     <div class="blur"></div>
     <div class="card" id="card">
         <div class ="login-side" id="login-side">
-            <h1>Login</h1>
+            <div class="top-side-login">
+                <a href="index.html"><img src="src/left-arrow-svgrepo-com.svg"></a>
+                <h1>Login</h1>
+            </div>
             <form>
                 <div class="email-login">
                     <input type="email" name="email" class="email-input" id="email-login" placeholder="Email" required>
@@ -39,7 +42,10 @@
             </form>
         </div>
         <div class="cadastro-side" id="cadastro-side">
-            <h1>Cadastro</h1>
+            <div class="top-side-cadastro">
+                <a href="index.html"><img src="src/left-arrow-svgrepo-com signup.svg"></a>
+                <h1>Cadastro</h1>
+            </div>
             <form>
                 <div class="nome-cadsatro">
                     <input type="text" class="nome-input" id="nome" placeholder="Nome" >
@@ -57,10 +63,16 @@
                         <label for="checkbox">Mostrar Senha</label> 
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="btn-signup">    
 
                     <button onclick="cadastrar(event)" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
 
+=======
+                <div class="btn-signup">
+                    <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+                    <a href="" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
+>>>>>>> 943bbe29cc742dae9ec94c19549004e01a3e991b
                 </div>
                 <div id="div_campos_verificacoes">
                     <div><label id="tamanhoSenha"  class="error-label">A senha deve ter entre 8 e 16 caracteres.</label></div>

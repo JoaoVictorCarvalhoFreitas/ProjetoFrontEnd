@@ -9,6 +9,10 @@ body {
     display: grid;
 }
 
+:root {
+    --button_color: rgb(121, 77, 41);
+}
+
 .blur {
     position: absolute;
     top: 0;
@@ -32,6 +36,30 @@ body {
     z-index: 999999999;
     box-shadow: 4px 4px 20px 10px rgba(0, 0, 0, 0.639);
     transition: ease-in-out 0.5s;
+}
+
+.top-side-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-left:-6rem;
+    a {
+        background-color:var(--button_color) ;
+        text-decoration: none;
+        width: 3rem;
+        height: 3rem;
+        display: grid;
+        border-radius: 0.5rem;
+        margin-bottom: 8rem;
+        img {
+            place-self: center;
+        }
+    }
+    h1 {
+        margin-left: -2rem;
+    }
 }
 
 h1 {
@@ -123,7 +151,7 @@ span {
         height: 2.5rem;
         font-size: large;
         outline: none;
-        background-color: rgb(121, 77, 41);
+        background-color:var(--button_color);
         border:none;
         color: white;
         border-radius: 0.5rem;
@@ -160,6 +188,9 @@ a:hover {
     height: 100%;
     width: 100%;
     transition:ease-in-out 0.5s;
+    h1 {
+        margin:  0 0 1rem 0 ;
+    }
     form{
         display: flex;
         flex-direction: column;
@@ -167,7 +198,6 @@ a:hover {
         align-items: center;
         gap:20px;
         width: 100%;
-        padding-bottom: 30px;
         .nome-input, .email-input, .senha-input, .confirmar-senha-input {
             padding: 0 5px 0 5px;
             font-size: medium;
@@ -177,6 +207,22 @@ a:hover {
             border: none;
             background-color: rgba(164, 164, 164, 0.276);
             border-radius: 3px;
+        }
+    }
+}
+
+.top-side-cadastro {
+    a {
+        background-color:var(--button_color) ;
+        text-decoration: none;
+        width: 3rem;
+        height: 3rem;
+        display: grid;
+        border-radius: 0.5rem;
+        margin-left: -4rem;
+        margin-top: -1rem;
+        img {
+            place-self: center;
         }
     }
 }
@@ -224,4 +270,3 @@ aside {
         filter: drop-shadow(15px 15px 5px rgba(0, 0, 0, 0.671));
     }
 }
-
