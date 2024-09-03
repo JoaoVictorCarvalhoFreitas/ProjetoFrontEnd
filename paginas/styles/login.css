@@ -182,7 +182,7 @@ a:hover {
 .cadastro-side {
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     height: 100%;
@@ -198,6 +198,7 @@ a:hover {
         align-items: center;
         gap:20px;
         width: 100%;
+        margin-bottom: 1rem;
         .nome-input, .email-input, .senha-input, .confirmar-senha-input {
             padding: 0 5px 0 5px;
             font-size: medium;
@@ -212,6 +213,7 @@ a:hover {
 }
 
 .top-side-cadastro {
+    margin-top: 1rem;
     a {
         background-color:var(--button_color) ;
         text-decoration: none;
@@ -220,7 +222,6 @@ a:hover {
         display: grid;
         border-radius: 0.5rem;
         margin-left: -4rem;
-        margin-top: -1rem;
         img {
             place-self: center;
         }
@@ -239,7 +240,6 @@ a:hover {
     height: 20px;
     cursor: pointer;
     box-sizing: border-box;
-    
 }
 
 
