@@ -32,8 +32,9 @@
                     </label>
                 </div>
                 <div class="btn-signup">
-                    <button type="submit" class="btn btn-primary" id="botaoEntrar">Entrar</button>
-                    <a href="#cadastro" onclick="cadastro()">Não tenho uma conta</a>
+                    <button onclick="logar(event)" class="btn btn-primary" id="botaoEntrar">Entrar</button>
+                    
+                    <a href="#cadastro" onclick="mostrarLogin_Cadastro()">Não tenho uma conta</a>
                 </div>
             </form>
         </div>
@@ -58,7 +59,7 @@
                 </div>
                 <div class="btn-signup">
                     <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
-                    <a href="#login" onclick="cadastro()">Ja tenho uma conta</a>
+                    <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
                 </div>
             </form>
         </div>
