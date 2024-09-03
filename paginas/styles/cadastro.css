@@ -1,0 +1,56 @@
+body{
+    background-image: url('src/fundoCadastro.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.error-label{
+    display: none;
+    color: red;
+}
+
+
+
+#usuarioJaexiste{
+    display: none;
+    color: red;
+}
+
+.imagePreview{
+    width: 10px;
+    height: 10px;
+    border: 2px solid red;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    overflow: hidden;
+}
+.card-menu {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    object-fit: cover; /* Ajusta a imagem para cobrir a área do card */
+    height: 200px; /* Define uma altura fixa para a imagem */
+}
+
+#divBotoes{
+    display: inline-block;
+    
+}
+#botaoCadastrar{
+    margin-top: 3px;
+    width: 100px;
+    margin-right: 5px;
+}
+#botaoLogin{
+    margin-top: 3px;
+    width: 100px;
+
+    background-color: red;
+}
+#usuarioCadastrado{
+    display: none;
+    color: green;
+}
