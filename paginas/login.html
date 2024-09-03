@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css">
     <title>Login</title>
 </head>
 <body>
     <div class="card">
-        <aside>
-            <img src="">
-        </aside>
         <div class ="login-side">
             <h1>Login</h1>
             <form>
@@ -19,11 +17,39 @@
                 </div>
                 <div class="senha">
                     <label for="senha" class="senha-label">Senha</label>
-                    <input type="password" class="senha-input" id="senha">
+                    <div class="show-eye">
+                        <input type="password" class="senha-input" id="senha">
+                        <input type="checkbox" onclick="mostrarSenha()">
+                        <span><img src="src/eye-svgrepo-com.svg"/></span>
                 </div>
                 <button type="submit" class="btn btn-primary" id="botaoEntrar">Entrar</button>
             </form>
         </div>
+        <div class="cadastro-side">
+            <h1>Cadastro</h1>
+            <form>
+                <div class="nome">
+                    <label for="nome" class="nome-label">Nome</label>
+                    <input type="text" class="nome-input" id="nome">
+                </div>
+                <div class="email">
+                    <label for="email" class="email-label">Email</label>
+                    <input type="email" class="email-input" id="email">
+                </div>
+                <div class="senha">
+                    <label for="senha" class="senha-label">Senha</label>
+                    <input type="password" class="senha-input" id="senha">
+                </div>
+                <div class="confirmar-senha">
+                    <label for="confirmar-senha" class="confirmar-senha-label">Confirmar Senha</label>
+                <div class="input-show">
+                    <input type="password" class="confirmar-senha-input" id="confirmar-senha">
+                    <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
+                </div>
+                <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+        <aside>
+            <img src="src/Baggio_coffe_img.png">
+        </aside>
     </div>
 </body>
 </html>
