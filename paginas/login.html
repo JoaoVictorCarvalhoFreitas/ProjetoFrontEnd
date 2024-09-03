@@ -41,25 +41,25 @@
             <h1>Cadastro</h1>
             <form>
                 <div class="nome-cadsatro">
-                    <label for="nome" class="nome-label">Nome</label>
-                    <input type="text" class="nome-input" id="nome" required>
+                    <input type="text" class="nome-input" id="nome" placeholder="Nome" required>
                 </div>
                 <div class="email-cadsatro">
-                    <label for="email" class="email-label-signup">Email</label>
-                    <input type="email" class="email-input" id="email-cadastro" required>
+                    <input type="email" class="email-input" id="email-cadastro" placeholder="Email" required>
                 </div>
                 <div class="senha-cadsatro">
-                    <label for="senha" class="senha-label-signup">Senha</label>
-                    <input type="password" class="senha-input" id="senha-cadastro" required>
+                    <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha" required>
                 </div>
                 <div class="confirmar-senha-cadsatro">
-                    <label for="confirmar-senha" class="confirmar-senha-label">Confirmar Senha</label>
-                    <div class="input-show">
-                        <input type="password" class="confirmar-senha-input" id="confirmar-senha" required>
-                        <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
+                    <input type="password" class="confirmar-senha-input" id="confirmar-senha" placeholder="Confirmar Senha" required>
+                    <div class="mostrar-senha">
+                        <input type="checkbox" id="checkbox" name="checkbox" onclick="mostrarSenha()">
+                        <label for="checkbox">Mostrar Senha</label> 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+                <div class="btn-signup">
+                    <button type="submit" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+                    <a href="#login" onclick="cadastro()">Ja tenho uma conta</a>
+                </div>
             </form>
         </div>
         <aside id="image">
