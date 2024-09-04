@@ -6,11 +6,11 @@ const app = express()
 app.use(express.json());
 app.use(express.static('paginas')); // Serve arquivos estáticos (HTML, CSS, JS)
 
-// Simulação de banco de dados
+//produtos iniciais
 let products = [
-    { id: '1', name: 'Produto A', price: '29.99', imageUrl: 'https://via.placeholder.com/300' },
-    { id: '2', name: 'Produto B', price: '49.99', imageUrl: 'https://via.placeholder.com/300' },
-    { id: '3', name: 'Produto C', price: '19.99', imageUrl: 'https://via.placeholder.com/300' }
+    { id: '1', name: 'café expresso ', price: '9.99', imageUrl: 'https://mundoemrevista.com.br/wp-content/uploads/2024/04/cafe-espresso-3-otimas-opcoes-de-maquinas-por-menos-de-r-500.webp' },
+    { id: '2', name: 'capuccino', price: '19.99', imageUrl: 'https://img.freepik.com/fotos-gratis/deliciosa-xicara-de-cafe-de-qualidade_23-2150691369.jpg?w=740&t=st=1725488811~exp=1725489411~hmac=5d9f0d365ff2d452e6d291085f0e8353b728070c80e0d0ec29a598bb42e3a8a8' },
+    { id: '3', name: 'Café com depressão', price: '999.99', imageUrl: 'https://s2-techtudo.glbimg.com/twoewJmwpMgtGPcRPP8SxFlDVmM=/0x0:695x393/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/P/f/y52r4ySZWLkJjEhKLhgw/2014-11-14-java-logo.jpg' }
 ];
 
 // API para obter todos os produtos
