@@ -19,34 +19,51 @@ body{
 }
 
 
-
+/* 
 #linhas-main{
     display: inline;
     width: 80%;
 }
 
 #main {
-    display: flex; /* Pode ser flex ou grid, dependendo do layout desejado */
-    height: 100vh; /* Altura da tela */
+    display: flex; 
+    height: 100vh; 
    
 }
 
 
 #linhas-main {
-    display: inline-block; /* Flexbox para centralizar o conteúdo */
+    display: inline-block; 
     
 }
 
 
 
 #divSecoes {
-    display: inline-block; /* Ajusta-se ao tamanho do conteúdo (imagem) */
-    border: 1px solid #ccc; /* Borda opcional para visualização */
+    display: block; 
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc; 
 }
 
-/* Estilo da imagem */
 .divSecoes img {
-    display: block; /* Remove espaçamento extra abaixo da imagem */
-    max-width: 100%; /* Garante que a imagem não exceda a largura da div pai */
-    height: auto; /* Mantém a proporção da imagem */
+    display: block; 
+    max-width: 100%; 
+    height: auto; 
+} 
+*/
+.divSecoes {
+    display: flex;
+    flex-direction: column; /* Alinha itens verticalmente */
+    justify-content: center; /* Centraliza itens verticalmente */
+    align-items: center; /* Centraliza itens horizontalmente */
+    height: 100%; /* Faz com que a div ocupe toda a altura da coluna */
+    text-align: center; /* Alinha o texto ao centro */
 }
+
+.divSecoes img {
+    width: 100%; /* Ajusta a imagem para preencher a largura da div pai */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Garante que a imagem não exceda a largura da div pai */
+    display: block; /* Remove o espaçamento extra abaixo da imagem */
+} 
