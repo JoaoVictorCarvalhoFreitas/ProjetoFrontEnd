@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Função para criar um card de produto
     function createProductCard(product) {
         return `
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card card-menu">
                     <img src="${product.imageUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
@@ -15,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Carregar produtos do localStorage e adicionar ao contêiner
-    const menuContainer = document.getElementById('menuContainer');
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    menuContainer.innerHTML = products.map(createProductCard).join('');
+    fetch('/api/products')
+        .then(response => response.json())
+        .then(products => {
+            const menuContainer = document.getElementById('menuContainer');
+            menuContainer.innerHTML = products.map(createProductCard).join('');
+        })
+        .catch(error => console.error('Erro ao carregar produtos:', error));
 });
