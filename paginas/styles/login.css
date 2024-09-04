@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow:hidden;
     display: grid;
 }
 
@@ -44,17 +44,20 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    height: 100%;
     margin-left:-6vw;
     a {
         background-color:var(--button_color) ;
         text-decoration: none;
-        width: 3rem;
-        height: 3rem;
+        width: 3.5vi;
+        height: 3.5vi;
         display: grid;
         border-radius: 0.5rem;
         margin-top: 2vh;
         margin-bottom: 15vh;
         img {
+            width: 80%;
+            height: 80%;
             place-self: center;
         }
     }
@@ -67,7 +70,7 @@ h1 {
     font-family:"Merriweather", sans-serif;
     font-weight: 900;
     font-style: normal;
-    font-size: 50px;
+    font-size: 4vi;
 }
 
 .login-side {
@@ -90,16 +93,16 @@ h1 {
     width: 100%;
     padding-bottom: 30px;
     .email-input, .senha-input {
-        font-size: medium;
-        width: 15rem;
-        height: 2rem;
+        font-size: 1vi;
+        width: 16vi;
+        height: 2vi;
         outline: none;
         border: none;
         background-color: rgba(164, 164, 164, 0.276);
         border-radius: 3px;
     }
     .senha-input{
-        margin-left: 1rem;
+        margin-left: 2vi;
     }
 }
 
@@ -110,7 +113,7 @@ h1 {
 
 .senha-login {
     display:inline-flex;
-    padding-bottom: 20px;
+    padding-bottom: 2vi;
 }
 
 #mostrarSenha {
@@ -123,16 +126,16 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
+    width: 2vi;
+    height: 2vi;
 }
 
 span {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-top: 1rem;
-    margin-left: -3.5rem;
+    width: 2vi;
+    height: 2vi;
+    margin-top:0.5vi;
+    margin-left: -4.1vi;
     img {
         width: 100%;
         height: 100%;
@@ -148,9 +151,9 @@ span {
 
     button {
         cursor: pointer;
-        width: 7rem;
-        height: 2.5rem;
-        font-size: large;
+        width: 7vi;
+        height: 2.5vi;
+        font-size: 1.5vi;
         outline: none;
         background-color:var(--button_color);
         border:none;
@@ -171,6 +174,7 @@ span {
 }
 
 a{
+    font-size: 1vi;
     text-decoration: none;
     color:black;
 }
@@ -190,6 +194,7 @@ a:hover {
     width: 100%;
     transition:ease-in-out 0.5s;
     h1 {
+        font-size: 3.5vi;
         margin:  0 0 1rem 0 ;
     }
     form{
@@ -197,14 +202,15 @@ a:hover {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        gap:20px;
+        gap:1vi;
         width: 100%;
+        height: 100%;
         margin-bottom: 1rem;
         .nome-input, .email-input, .senha-input, .confirmar-senha-input {
             padding: 0 5px 0 5px;
-            font-size: medium;
-            width: 15rem;
-            height: 2rem;
+            font-size: 1vi;
+            width: 16vi;
+            height: 2vi;
             outline: none;
             border: none;
             background-color: rgba(164, 164, 164, 0.276);
@@ -218,12 +224,14 @@ a:hover {
     a {
         background-color:var(--button_color) ;
         text-decoration: none;
-        width: 3rem;
-        height: 3rem;
+        width: 3vi;
+        height: 3vi;
         display: grid;
         border-radius: 0.5rem;
         margin-left: -4vw;
         img {
+            width: 80%;
+            height: 80%;
             place-self: center;
         }
     }
@@ -242,15 +250,16 @@ a:hover {
 }
 
 .requisitos-senha, .compare-senha {
-    width: 15rem;
+    width: 16vi;
     label{
-        font-size: small;
+        font-size: 1vi;
+        line-height: 1px;
     }
 }
 
 #checkbox {
-    width: 20px;
-    height: 20px;
+    width: 1.5vi;
+    height: 1.5vi;
     cursor: pointer;
     box-sizing: border-box;
 }
@@ -258,10 +267,10 @@ a:hover {
 
 .mostrar-senha {
     display: flex;
-    width: 16rem;
+    width: 17vi;
     align-items: center;
     font-family:"Merriweather", sans-serif;
-    font-size: small;
+    font-size: 0.8vi;
 
 }
 
@@ -274,9 +283,9 @@ a:hover {
 
     button {
         cursor: pointer;
-        width: 7rem;
-        height: 2.5rem;
-        font-size: large;
+        width: 7vi;
+        height: 2.5vi;
+        font-size: 1.3vi;
         outline: none;
         background-color:var(--button_color);
         border:none;
