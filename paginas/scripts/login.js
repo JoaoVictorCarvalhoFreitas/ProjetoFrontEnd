@@ -79,15 +79,17 @@ function row() {
     img.style.transform = "translateX(0%)"
 }
 
+// mostra os requisitos da senha caso o campo de senha esteja selecionado
+
 
 const input = document.getElementById("senha-cadastro");
-const req = document.getElementById("requisitos");
+const requisitos = document.getElementById("requisitos");
 
 input.addEventListener("focus", function() {
-    req.style.display = "block";
+    requisitos.style.display = "block";
 });
 input.addEventListener("blur", function() {
-    req.style.display = "none";
+    requisitos.style.display = "none";
 });
 
 
