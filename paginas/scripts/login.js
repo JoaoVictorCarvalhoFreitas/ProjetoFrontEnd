@@ -80,6 +80,18 @@ function row() {
 }
 
 
+const input = document.getElementById("senha-cadastro");
+const req = document.getElementById("requisitos");
+
+input.addEventListener("focus", function() {
+    req.style.display = "block";
+});
+input.addEventListener("blur", function() {
+    req.style.display = "none";
+});
+
+
+
 function mostrarSenhaLogin() {
     var checkbox1 = document.getElementById("mostrarSenha");
 

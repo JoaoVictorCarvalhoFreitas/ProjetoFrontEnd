@@ -53,8 +53,7 @@ body {
         height: 3.5vi;
         display: grid;
         border-radius: 0.5rem;
-        margin-top: 2vh;
-        margin-bottom: 15vh;
+        margin-bottom: 10vi;
         img {
             width: 80%;
             height: 80%;
@@ -78,7 +77,6 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    gap: 50px;
     height: 100%;
     width: 100%;
     transition: ease-in-out 0.5s;
@@ -92,6 +90,7 @@ h1 {
     gap:20px;
     width: 100%;
     padding-bottom: 30px;
+    margin-bottom:3vi ;
     .email-input, .senha-input {
         font-size: 1vi;
         width: 16vi;
@@ -134,7 +133,7 @@ span {
     display: inline-block;
     width: 2vi;
     height: 2vi;
-    margin-top:0.5vi;
+    margin-top:0.2vi;
     margin-left: -4.1vi;
     img {
         width: 100%;
@@ -251,7 +250,7 @@ a:hover {
 
 .requisitos-senha, .compare-senha {
     width: 16vi;
-    label{
+    label p{
         font-size: 1vi;
         line-height: 1px;
     }
