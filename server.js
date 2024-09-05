@@ -20,7 +20,7 @@ app.get('/api/products', (req, res) => {
 
 // API para obter um produto pelo ID
 app.get('/api/products/:id', (req, res) => {
-    const product = products.find(p => p.id === req.params.id);
+    const product = products.find(p => p.id == req.params.id);
     console.log(`GET /api/products/${req.params.id}`);
     if (product) {
         res.json(product);
@@ -33,7 +33,7 @@ app.get('/api/products/:id', (req, res) => {
 // API para adicionar ou atualizar um produto
 app.post('/api/products', (req, res) => {
     const { id, name, price, imageUrl } = req.body;
-    const existingProductIndex = products.findIndex(product => product.id === id);
+    const existingProductIndex = products.findIndex(product => product.id == id);
 
     console.log('POST /api/products', req.body);
 
@@ -51,7 +51,7 @@ app.post('/api/products', (req, res) => {
 // API para excluir um produto pelo ID
 app.delete('/api/products/:id', (req, res) => {
     const { id } = req.params;
-    const productIndex = products.findIndex(p => p.id === id);
+    const productIndex = products.findIndex(p => p.id == id);
 
     console.log(`DELETE /api/products/${id}`);
 
