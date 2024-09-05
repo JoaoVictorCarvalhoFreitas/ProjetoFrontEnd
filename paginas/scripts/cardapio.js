@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">R$ ${parseFloat(product.price).toFixed(2)}</p>
-                        <a class="btn btn-primary" href=""> comprar</a>
+                        <a class="btn btn-primary" href="/index.html"> comprar</a>
                     </div>
                 </div>
             </div>
