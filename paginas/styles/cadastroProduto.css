@@ -9,7 +9,6 @@ body{
 #IdImagem{
     max-width: 150px;
 }
-<<<<<<< HEAD
 
 td {
     font-size: 25px;
@@ -40,7 +39,6 @@ th{
 }
 
 
-=======
 .blur {
     position: absolute;
     top: 50%;
@@ -52,4 +50,3 @@ th{
     width: 100%;
     height: 100%;
 }
->>>>>>> 8a84177f835a6334ca48e21897a08dfcdbc36e42
