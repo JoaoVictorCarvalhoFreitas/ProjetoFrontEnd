@@ -2,29 +2,35 @@ document.addEventListener('DOMContentLoaded', function() {
     let nextId = 1;
 
     function saveProduct(product) {
+        console.log('Saving product:', product);
+
         fetch('/api/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(product)
-        }).then(response => response.json())
-          .then(data => {
-              console.log(data.message);
-              loadProducts();
-          })
-          .catch(error => console.error('Erro ao salvar produto:', error));
+        }).then(response => {
+            console.log('Response:', response);
+            return response.json();
+        }).then(data => {
+            console.log('Save result:', data.message);
+            loadProducts();
+        }).catch(error => console.error('Erro ao salvar produto:', error));
     }
 
     function deleteProduct(id) {
+        console.log('Deleting product with ID:', id);
+
         fetch(`/api/products/${id}`, {
             method: 'DELETE'
-        }).then(response => response.json())
-          .then(data => {
-              console.log(data.message);
-              loadProducts();
-          })
-          .catch(error => console.error('Erro ao excluir produto:', error));
+        }).then(response => {
+            console.log('Response:', response);
+            return response.json();
+        }).then(data => {
+            console.log('Delete result:', data.message);
+            loadProducts();
+        }).catch(error => console.error('Erro ao excluir produto:', error));
     }
 
     function addProductToTable(id, name, price, imageUrl) {
@@ -32,20 +38,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = table.insertRow();
         row.setAttribute('data-id', id);
         row.innerHTML = `
-            <td id="tdIdCorpo">${id}</td>
+            <td>${id}</td>
             <td>${name}</td>
             <td>R$ ${parseFloat(price).toFixed(2)}</td>
-            <td id="IdImagem"><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
-            <td id="tdBotoesEditarExcluir">
-                <button class="btn btn-primary btn-sm me-2 edit-btn" id="botaoEditar" data-id="${id}">Editar</button>
-                <button class="btn btn-danger btn-sm delete-btn" id="botaoExcluir" data-id="${id}">Excluir</button>
+            <td><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
+            <td>
+                <button class="btn btn-primary btn-sm me-2 edit-btn" data-id="${id}">Editar</button>
+                <button class="btn btn-danger btn-sm delete-btn" data-id="${id}">Excluir</button>
             </td>
         `;
     }
 
     function loadProducts() {
+        console.log('Loading products');
+
         fetch('/api/products')
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response:', response);
+                return response.json();
+            })
             .then(products => {
                 const table = document.getElementById('productTable');
                 table.innerHTML = '';
@@ -66,7 +77,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const price = document.getElementById('productPrice').value;
         const imageUrl = document.getElementById('productImage').value;
 
-        const product = { id, name, price, imageUrl };
+        const product = {
+            id: id || nextId++, // Incrementa nextId para novos produtos
+            name,
+            price,
+            imageUrl
+        };
+        
         saveProduct(product);
         document.getElementById('productForm').reset();
         const productModal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
@@ -78,8 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const id = target.getAttribute('data-id');
 
         if (target.classList.contains('edit-btn')) {
+            console.log('Editing product with ID:', id);
+
             fetch(`/api/products/${id}`)
-                .then(response => response.json())
+                .then(response => {
+                    console.log('Response:', response);
+                    return response.json();
+                })
                 .then(product => {
                     document.getElementById('productId').value = product.id;
                     document.getElementById('productName').value = product.name;
