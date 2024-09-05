@@ -3,7 +3,6 @@ body{
     background-size: cover;
     width: 100dvw;
     height: 100dvh;
-    
 }
 
 #IdImagem{
@@ -43,7 +42,7 @@ th{
     position: absolute;
     top: 50%;
     left: 50%;
-    background-color: rgba(0, 0, 0, 0.349);
+    background-color: rgba(0, 0, 0, 0.142);
     transform: translate(-50%, -50%);
     z-index: -1;
     filter: blur(2px);
