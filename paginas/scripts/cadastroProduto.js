@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${id}</td>
             <td>${name}</td>
             <td>R$ ${parseFloat(price).toFixed(2)}</td>
-            <td><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
+            <td id="IdImagem"><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
             <td>
                 <button class="btn btn-primary btn-sm me-2 edit-btn" data-id="${id}">Editar</button>
                 <button class="btn btn-danger btn-sm delete-btn" data-id="${id}">Excluir</button>
