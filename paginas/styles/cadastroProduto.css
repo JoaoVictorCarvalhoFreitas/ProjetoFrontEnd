@@ -8,3 +8,33 @@ body{
 #IdImagem{
     max-width: 150px;
 }
+
+td {
+    font-size: 25px;
+}
+
+th{
+    font-size: 30px;
+}
+
+#thId{
+    border-top-left-radius: 20px;
+}
+#thAcoes{
+    border-top-right-radius: 20px;
+
+}
+
+#productTable :last-child #tdBotoesEditarExcluir{
+    border-bottom-right-radius: 20px;
+
+}
+#productTable :last-child #tdIdCorpo{
+    border-bottom-left-radius: 20px;
+
+}
+#botaoEditar,#botaoExcluir{
+    font-size: 20px;
+}
+
+

@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = table.insertRow();
         row.setAttribute('data-id', id);
         row.innerHTML = `
-            <td>${id}</td>
+            <td id="tdIdCorpo">${id}</td>
             <td>${name}</td>
             <td>R$ ${parseFloat(price).toFixed(2)}</td>
             <td id="IdImagem"><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
-            <td>
-                <button class="btn btn-primary btn-sm me-2 edit-btn" data-id="${id}">Editar</button>
-                <button class="btn btn-danger btn-sm delete-btn" data-id="${id}">Excluir</button>
+            <td id="tdBotoesEditarExcluir">
+                <button class="btn btn-primary btn-sm me-2 edit-btn" id="botaoEditar" data-id="${id}">Editar</button>
+                <button class="btn btn-danger btn-sm delete-btn" id="botaoExcluir" data-id="${id}">Excluir</button>
             </td>
         `;
     }
