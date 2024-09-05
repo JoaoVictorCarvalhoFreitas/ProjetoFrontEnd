@@ -6,7 +6,7 @@ body{
 
 
 #cabec{
-    background-color:  #47251B !important;;
+    background-color:  rgb(121, 77, 41) !important;;
 }
 
 #footer{
@@ -67,3 +67,26 @@ body{
     max-width: 100%; /* Garante que a imagem não exceda a largura da div pai */
     display: block; /* Remove o espaçamento extra abaixo da imagem */
 } 
+
+.texto-cafe {
+    background-color:  rgb(121, 77, 41);
+    color:white;
+}
+
+.cafearabica {
+    width: 100%;;
+    height: 400px;
+}
+
+.carousel-caption {
+    padding-top: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 85px;
+}
+
+.navbar {
+    background-color: #e8e0d0;
+}

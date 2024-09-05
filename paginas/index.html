@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>ByteCafé</title>
+    <link rel="icon" type="imagem/svg+xml" href="src/coffee-bean-filled-roast-brew-svgrepo-com.svg">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index.css">
@@ -11,16 +12,16 @@
 <body>
 
     <!-- Barra de Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">ByteCafé</a>
+            <img class = logo src="src/pixelcut-export.png">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cadastroProduto.html">cadastroProdutos</a>
+                        <a class="nav-link active" aria-current="page" href="cadastroProduto.html">CadastroProdutos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sobre</a>
@@ -32,10 +33,7 @@
                         <a class="nav-link" href="#">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary me-2" href="login.html">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary" href="login.html">Login</a>
+                        <a class="btn btn-primary" href="login.html">Login/Cadastro</a>
                     </li>
                 </ul>
             </div>
@@ -45,10 +43,106 @@
     <!-- Cabeçalho -->
     <header class="bg-primary  text-white text-center py-5" id="cabec">
         <div class="container">
-            <h1>Bem-vindo à Minha Página</h1>
-            <p class="lead">Esta é uma página inicial básica usando Bootstrap</p>
+            <h1>Bem-vindo ao ByteCafé!</h1>
+            <p class="lead">Aqui você encontrará o seu café preferido!</p>
         </div>
     </header>
+    <div class="texto-cafe">
+        <h2>Tipos de Café</h2>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="src/cafearabica.jpg" class="cafearabica" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Café Arábico.</h5>
+              <p>
+                <h4>O grão de café Arábica é a espécie mais popular e cultivada no mundo, representando cerca de 60-70% da produção global de café.
+                    <li>
+                        Sabor: Geralmente mais suave e menos amargo, com uma ampla gama de sabores, incluindo notas frutadas, florais e acidulada.
+                    </li>
+                    <li>
+                        Acidez: Tem uma acidez mais pronunciada, o que contribui para um perfil de sabor mais complexo.
+                    </li>
+                    <li>
+                        Aroma: O grão de Arábica é conhecido por seu perfil aromático complexo e variado.
+                    </li>
+                </h4>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/cafearabica.jpg" class="cafearabica" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Robusta</h5>
+              <p>
+                <h4>Descrição: Robusta é a segunda espécie mais cultivada, representando cerca de 30-40% da produção mundial. É frequentemente usado em blends e para café instantâneo.
+                 <li>
+                    Sabor: Mais forte e amargo, com um corpo mais robusto. Pode ter notas de chocolate amargo, nozes e até um toque de madeira.
+                 </li>
+                 <li>
+                    Acidez: Baixa acidez, o que resulta em uma sensação mais encorpada e menos brilhante comparada ao Arábica.
+                 </li>
+                 <li>
+                    Aroma: O grão de Robusta possui um perfil de aroma mais forte e robusto.
+                 </li>
+                </h4>
+               </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/cafearabica.jpg" class="cafearabica" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Liberica</h5>
+              <p>
+               <h4>O grão de café Liberica é menos conhecido e cultivado do que o Arábica e o Robusta, mas é significativo em algumas regiões. Ele é nativo da África Ocidental e também é cultivado em partes da Ásia, especialmente nas Filipinas e na Malásia.
+                <li>
+                    Sabor: O café Liberica é conhecido por seu perfil de sabor distinto e exótico. Geralmente, tem um sabor mais frutado e floral com notas de madeira e especiarias. Pode ter um toque defumado ou terroso, que o diferencia dos outros tipos de grãos
+                </li>
+                <li>
+                    Acidez: A acidez do Liberica tende a ser mais baixa comparada à do Arábica, mas pode variar dependendo do processamento e da origem.
+                </li>
+                <li>
+                    Aroma: O aroma do café Liberica pode ser descrito como mais floral e frutado, muitas vezes com uma presença robusta de madeira e especiarias.
+                </h4></li>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/cafearabica.jpg" class="cafearabica" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Sumatra</h5>
+              <p>
+                <h4><p>O café Sumatra é conhecido por suas características distintas que o tornam bastante popular entre os apreciadores de café. 
+                    <li>
+                        Sabor: Corpo pesado e encorpado, com sabores de chocolate escuro, ervas e especiarias. O perfil tende a ser muito menos ácido e mais rico em comparação com outras origens.
+                    </li>
+                    <li>
+                        Acidez: Baixa acidez, resultando em uma sensação mais suave e aveludada, com menos brilho e frescor.
+                    </li>
+                    <li>
+                        Aroma: Terroso e amadeirado, com notas que podem incluir especiarias e uma leve doçura.
+                    </li>
+                </h4></p>
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
     <!-- Conteúdo Principal -->
     <main class="container my-5" id="main">
