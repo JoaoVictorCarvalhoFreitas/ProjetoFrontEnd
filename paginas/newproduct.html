@@ -8,16 +8,44 @@
     <title>Byte Coffee</title>
 </head>
 <body>
-    <main>
+    <div class="left-side">
+        <img src="src/pixelcut-export.png">
+        <br>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cardapio.html">Produtos</a>
+            <a href="listaUsuarios.html">Usuários</a>
+        </nav>
+    </div>
+    <div class="right-side">
         <div class="upper-side">
-            <a href="index.html"><img src="src/left-arrow-svgrepo-com.svg"/></a>
             <h1>Cadastro de Produtos</h1>
+            <p>X produtos cadastrados</p>
+        </div>
+        <div class="middle-side">
+            <input type="search" id="search" placeholder="ID ou Nome">
+            <select id="select">
+                <option value="all">Categoria</option>
+                <option value="id">ID</option>
+                <option value="name">Nome</option>
+            </select>
+            <button onclick=""><img src="src/plus-large-svgrepo-com.svg"> Adicionar Produto</button>
         </div>
         <div class="lower-side">
             <table>
-                
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Catálogo</th>
+                        <th></th>
+                    </tr>
+                </thead>
             </table>
-    </main>
+        </div>
 </body>
 </html>
 

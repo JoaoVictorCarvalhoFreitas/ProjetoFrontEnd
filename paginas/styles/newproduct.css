@@ -1,3 +1,71 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    background-color: rgb(240, 229, 217);
+    background-color: var(--Brown);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+:root {
+    --creme:      rgb(232, 224, 209);
+    --Brown:      rgb(121, 77, 41);
+    --bege-claro: rgb(255, 213, 184);
+    --bege:       rgb(244, 204, 176);
+    --bege-escuro:rgb(218, 183, 157);
+
+}
+
+.left-side {
+    background-color:var(--creme) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1vi;
+    width: 18vi;
+    box-shadow: ;
+
+    img {
+        width: 18vi;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    a {
+        font-size: 1.5vi;
+        color:var(--bege);
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        border-top: 0.1vi  solid var(--bege);
+        border-bottom: 0.1vi  solid var(--bege);
+    }
+
+    a:hover {
+        background-color:rgb(142, 91, 49) ;
+        transform: scale(1.1);
+        width: 91%;
+        color:var(--bege-claro);
+    }
+    a:active {
+        background-color: rgb(116, 75, 41);
+        transform: scale(0.9);
+        width: 111%;
+        color:var(--bege-escuro);
+    }
 }
