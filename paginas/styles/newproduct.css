@@ -18,10 +18,6 @@ body {
 :root {
     --creme:      rgb(232, 224, 209);
     --marrom:      rgb(121, 77, 41);
-    --bege-claro: rgb(255, 213, 184);
-    --bege:       rgb(244, 204, 176);
-    --bege-escuro:rgb(218, 183, 157);
-
 }
 
 .left-side {
@@ -59,7 +55,7 @@ body {
 
     a:hover {
         background-color:rgb(142, 91, 49) ;
-        color:var(--bege-claro);
+        color:var(--creme);
     }
     a:active {
         transform: scale(0.9);
@@ -82,5 +78,17 @@ body {
         justify-content: start;
         width: 100%;
         height: 10%;
-    }
+
+            h1 {
+                font-size: 2.5vi;
+                font-family: Merriweather, sans-serif;    
+                color: var(--creme);
+                margin: 0 0 0 1.5vi;
+
+            }
+            p {
+                margin:0;
+                font-size: 1.2vi;
+            }
+        }
 }
