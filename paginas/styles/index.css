@@ -90,3 +90,26 @@ body{
 .navbar {
     background-color: #e8e0d0;
 }
+
+.slide {
+    margin-left: 74px;
+    width: 90%;
+    height: 70%;
+}
+
+.carousel-control-prev {
+    width: 100px;
+}
+.carousel-control-next {
+    width: 100px;
+}
+
+.slidescarrosel {
+
+}
+.titulocafe {
+    height: 2200px;
+}
+.textocafes {
+    height: 60px;
+}
