@@ -86,8 +86,10 @@ body {
                 margin: 0 0 0 1.5vi;
 
             }
-            p {
+            p:not(::first-letter) {
+                color: var(--creme);
                 margin:0;
+                padding:1vi 0 0 1vi;
                 font-size: 1.2vi;
             }
         }

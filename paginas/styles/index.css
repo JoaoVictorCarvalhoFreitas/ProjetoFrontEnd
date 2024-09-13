@@ -108,8 +108,17 @@ body{
 
 }
 .titulocafe {
-    height: 2200px;
+    z-index: 1;
+    height: 35px;
 }
 .textocafes {
     height: 60px;
+}
+
+.texto {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 5%;
+    padding: 1%;
 }
