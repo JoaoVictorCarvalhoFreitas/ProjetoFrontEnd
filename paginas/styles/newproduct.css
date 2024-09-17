@@ -16,8 +16,10 @@ body {
 }
 
 :root {
-    --creme:      rgb(232, 224, 209);
+    --cremeescuro: rgb(225, 211, 185);
+    --creme:       rgb(232, 224, 209);
     --marrom:      rgb(121, 77, 41);
+    --marromclaro: rgb(142, 86, 40);
 }
 
 .left-side {
@@ -86,11 +88,41 @@ body {
                 margin: 0 0 0 1.5vi;
 
             }
-            p:not(::first-letter) {
+            p {
                 color: var(--creme);
                 margin:0;
                 padding:1vi 0 0 1vi;
                 font-size: 1.2vi;
             }
         }
+
+    .middle-side {
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.196);
+        border-radius: 0.5vi;
+        height: 3vi;
+        background-color: var(--cremeescuro);
+
+        .search-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 2vi;
+            width: 25%;
+            border-radius: 0.5vi;
+            box-shadow: 1px 1px 1px 1px rgba(142, 86, 40, 0.413);
+            background-color:var(--creme) ;
+            input {
+                border: none;
+                background-color: transparent;
+                outline: none;
+                width: 80%;
+            }
+        }
+    }
 }

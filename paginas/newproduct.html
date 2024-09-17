@@ -26,13 +26,17 @@
             <p>X produtos cadastrados</p>
         </div>
         <div class="middle-side">
-            <input type="search" id="search" placeholder="ID ou Nome">
+            <div class="search-bar">
+                <input type="text" id="searchbar" placeholder="ID ou Nome" onfocus="search()">
+                <img id="clear" src="src/clear-svgrepo-com.svg" style="display:none ;">
+                <img src="src/search-svgrepo-com (1).svg">
+            </div>
             <select id="select">
                 <option value="all">Categoria</option>
                 <option value="id">ID</option>
                 <option value="name">Nome</option>
             </select>
-            <button onclick=""><img src="src/plus-large-svgrepo-com.svg"> Adicionar Produto</button>
+            <button onclick=""><img src="src/plus-large-svgrepo-com.svg">Produto</button>
         </div>
         <div class="lower-side">
             <table>
@@ -49,6 +53,8 @@
                 </thead>
             </table>
         </div>
+    </div>
+    <script src="scripts/newproduct.js"></script>
 </body>
 </html>
 
