@@ -3,7 +3,7 @@ function search() {
     var searchbar = document.getElementById("searchbar");
     var clear = document.getElementById("clear");
 
-    searchbar.addEventListener("focus", function() {
+    searchbar.addEventListener("click", function() {
             searchbar.style.width = "70%";
             clear.style.display = "block";
     });

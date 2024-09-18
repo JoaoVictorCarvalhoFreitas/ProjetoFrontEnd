@@ -124,5 +124,27 @@ body {
                 width: 80%;
             }
         }
+        .select{
+            background-color: var(--creme);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 6vi;
+            height: 1.5vi;
+            outline: none;
+            border: none;
+            border-radius: 1vi;
+            font-size: 1vi;
+            
+            p {
+                position: relative;
+                margin: 0;
+                height: 100%;
+                align-self: center;
+            }
+            .ecommerce,.fisico{
+                display: none;
+            }
+        }
     }
 }
