@@ -13,3 +13,8 @@ function search() {
     });
 
 }
+
+function showmodal() {
+    var modal = document.getElementById("modal-new");
+    modal.style.display = "flex";
+}
