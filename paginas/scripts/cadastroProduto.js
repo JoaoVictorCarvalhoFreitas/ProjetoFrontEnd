@@ -1,48 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', ()=> {
+    
     let nextId = 1;
 
-    function saveProduct(product) {
-        console.log('Saving product:', product);
+    function salvarProduto(prod) {
+        console.log('salvando produto:', prod);
 
-        fetch('/api/products', {
+        fetch('/api/produtos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(prod)
         }).then(response => {
-            console.log('Response:', response);
+            console.log('resposta:', response);
             return response.json();
-        }).then(data => {
-            console.log('Save result:', data.message);
-            loadProducts();
+        }).then(() => {loadProducts();
         }).catch(error => console.error('Erro ao salvar produto:', error));
     }
 
-    function deleteProduct(id) {
-        console.log('Deleting product with ID:', id);
-
+    function deletarProduto(id) {
+        console.log('deletando produto com o id:', id);
         fetch(`/api/products/${id}`, {
             method: 'DELETE'
-        }).then(response => {
-            console.log('Response:', response);
+        }).then(resp => {
+            console.log('Response:', resp);
             return response.json();
-        }).then(data => {
-            console.log('Delete result:', data.message);
+        }).then(() => {
             loadProducts();
         }).catch(error => console.error('Erro ao excluir produto:', error));
     }
 
-    function addProductToTable(id, name, price, imageUrl) {
-        const table = document.getElementById('productTable');
-        const row = table.insertRow();
-        row.setAttribute('data-id', id);
-        row.innerHTML = `
+    function adProdutoNaTabela(id, nome, preco, imagemUrl) {
+        const tabela = document.getElementById('TabelaProduto');
+        const linha = tabela.insertRow();
+        linha.setAttribute('data-id', id);
+        linha.innerHTML = `
         
             <td>${id}</td>
-            <td>${name}</td>
-            <td>R$ ${parseFloat(price).toFixed(2)}</td>
-            <td><img src="${imageUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
+            <td>${nome}</td>
+            <td>R$ ${parseFloat(preco).toFixed(2)}</td>
+            <td><img src="${imagemUrl || 'https://via.placeholder.com/100'}" class="img-fluid" alt="Imagem do Produto"></td>
             <td id="Idbotoes">
                 <button class="btn btn-primary btn-sm me-2 edit-btn" data-id="${id}">Editar</button>
                 <button class="btn btn-danger btn-sm delete-btn" data-id="${id}">Excluir</button>
@@ -51,12 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadProducts() {
-        console.log('Loading products');
+        console.log('carregando produtos');
 
         fetch('/api/products')
-            .then(response => {
-                console.log('Response:', response);
-                return response.json();
+            .then(resp => {
+                console.log('resposta:', resp);
+                return resp.json();
             })
             .then(products => {
                 const table = document.getElementById('productTable');
