@@ -1,14 +1,59 @@
 import express from 'express';
-import {Sequelize} from 'sequelize'
+import {DataTypes, Sequelize} from 'sequelize'
+
+
+
+const app = express();
+app.use(express.json());
 
 
 const port = 3000;
 
-const sequelize = new sequelize()
+const sequelize = new 
+Sequelize('bytecafeprodutos','root','@Playerotaku07.',{
+    host:'localhost',
+    dialect: 'mysql' 
+   });
 
-const app = express();
 
-app.use(express.json());
+
+sequelize.authenticate()
+   .then(()=>{
+    console.log("conexao com o banco estabelecida")
+   })
+   .catch(err=>{
+    console.log(err)
+   })
+
+const Produto = sequelize.define('Produto', {
+    nome: {
+        type: DataTypes.STRING
+    },
+    preco:{
+        type: DataTypes.DOUBLE
+    }
+})
+
+sequelize.sync();
+
+app.post('/produto', async (req,res)=>{
+
+    console.log(req.body)
+    const {nome,preco} = req.body
+    try{
+        const produto = await Produto.create({
+            nome:nome,
+            preco:preco
+        })
+        res.send("produto cadastrado")
+    }catch(error) {
+        console.log(error)
+        res.send("erro produto nao")
+    }
+    
+})
+
+
 app.use(express.static('paginas'));
 
 let produtos = [

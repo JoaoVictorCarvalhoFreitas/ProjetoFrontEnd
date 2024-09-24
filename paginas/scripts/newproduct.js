@@ -14,7 +14,12 @@ function search() {
 
 }
 
-function showmodal() {
-    var modal = document.getElementById("modal-new");
-    modal.style.display = "flex";
+function mostraModal() {
+    const modal = document.getElementById("modal-new");
+    if(modal.style.display == "none"){
+        modal.style.display = "flex";
+    }
+    else{
+        modal.style.display = "none";
+    }
 }
