@@ -173,6 +173,7 @@ input[type="number"]::-webkit-outer-spin-button {
         justify-content: center;
         align-items: start;
         .modal {
+            position: relative;
             background-color: var(--creme);
             margin-top: 2.5vi;
             width: 30%;
@@ -204,5 +205,17 @@ input[type="number"]::-webkit-outer-spin-button {
                 }
             }
         }
+    }
+}
+
+@keyframes slideup {
+    0% {
+        bottom: 0vi;
+    }
+    50% {
+        bottom: 50vi;
+    }
+    100% {
+        bottom:100vi ;
     }
 }
