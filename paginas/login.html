@@ -12,6 +12,7 @@
     <link rel="icon" type="imagem/svg+xml" href="src/coffee-bean-filled-roast-brew-svgrepo-com.svg">
     <link rel="stylesheet" href="styles/login.css">
     <title>Login</title>
+
     
 </head>
 <body>
@@ -25,19 +26,19 @@
             <form>
                 <div class="email-login">
                     <input type="email" name="email" class="email-input" id="email-login" placeholder="Email" required>
+                    <p id="usuarioIncorreto" style="color: red;display: none;"> Usuario nao encontrado</p>
                 </div>
                 <div class="senha-login">
                     <input type="password" class="senha-input" id="senha-login" placeholder="Senha" required>
                     <input type="checkbox"
-                    id="mostrarSenha" name="mostrarSenha" onclick="mostrarSenhaLogin()">
+                    id="mostrarSenha" name="mostrarSenha" >
                     <label for="mostrarSenha" class="label-mostrar">
                         <span for="mostrarSenha"><img id="eye" src="src/eye-svgrepo-com.svg"/></span>
                     </label>
                 </div>
                 <div class="btn-login">
-                    <button onclick="logar(event)" class="btn btn-primary" id="botaoEntrar">Entrar</button>
-
-                    <a href="#cadastro" onclick="mostrarLogin_Cadastro()">Não tenho uma conta</a>
+                    <button class="btn btn-primary" id="botaoEntrar">Entrar</button>
+                    <a href="#cadastro" id="mostrarLogin_Cadastro">Não tenho uma conta</a>
                 </div>
             </form>
         </div>
@@ -50,18 +51,20 @@
                 <div class="nome-cadsatro">
                     <input type="text" class="nome-input" id="nome" placeholder="Nome" >
                 </div>
+                <div>
+                    <input type="text" class="sobrenome-input" id="sobrenome" placeholder="sobrenome">
+                </div>
                 <div class="email-cadsatro">
                     <input type="email" class="email-input" id="email-cadastro" placeholder="Email" >
                 </div>
                 <div class="senha-cadsatro">
-                    <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha"">
+                    <input type="password" class="senha-input" id="senha-cadastro" placeholder="Senha">
                     <div class="requisitos-senha">
                         <label class="error-label" id="requisitos" style="display: none;">
                             <p>A senha deve conter:</p>
                             <p>Mínimo 8 caracteres.</p>
                             <p>1 caracter especial.</p> 
                             <p>1 letra maiúscula.</p>
-                            </p>
                         </label>
                     </div>
                 </div>
@@ -71,12 +74,12 @@
                         <label id="senhadiferente" class="error-label" style="display: none;">As senhas não são iguais.</label>
                     </div>
                     <div class="mostrar-senha">
-                        <input type="checkbox" id="checkbox" name="checkbox" onclick="mostrarSenhaSignup()">
                         <label for="checkbox">Mostrar Senha</label> 
+                        <input type="checkbox" id="checkbox_senha" name="checkbox" >
                     </div>
                 </div>
                 <div class="btn-signup">    
-                    <button onclick="cadastrar(event)" class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
+                    <button class="btn btn-primary" id="botaoCadastrar">Cadastrar</button>
                     <a href="#login" onclick="mostrarLogin_Cadastro()">Ja tenho uma conta</a>
                 </div>
             </form>
@@ -85,6 +88,8 @@
             <img src="src//kitescritorio_moidos.webp">
         </aside>
     </div>
+    <script src="scripts/cadastroProduto.js"></script>
     <script src="scripts/login.js"></script>
+
 </body>
 </html>

@@ -1,16 +1,14 @@
-import { DataTypes} from "sequelize";
+import { DataTypes, Sequelize} from "sequelize";
 import ssequelize from "./bdDeclaracao.js";
 
 const sequelize = ssequelize;
 
-
-
 const Produto = sequelize.define('Produto', {
     id_produto: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUID, 
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
     },
     nome: {
       type: DataTypes.STRING,
@@ -35,22 +33,25 @@ const Produto = sequelize.define('Produto', {
   
   const Usuario = sequelize.define('Usuario', {
     id_usuario: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUID, 
       primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
     },
     nome: {
       type: DataTypes.STRING(50),
+      allowNull: false,
     },
     sobrenome: {
         type: DataTypes.STRING(50),
       },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
-    endereco: {
-      type: DataTypes.STRING(100),
+    senha:{
+        type: DataTypes.STRING,
+        allowNull: false,
+
     },
     data_criacao: {
         type: DataTypes.DATE,
@@ -62,10 +63,10 @@ const Produto = sequelize.define('Produto', {
   
   const Pedido = sequelize.define('Pedido', {
     id_pedido: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUID, 
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
     },
     data_pedido: {
       type: DataTypes.DATE,
@@ -88,10 +89,10 @@ const Produto = sequelize.define('Produto', {
   
   const Telefone = sequelize.define('Telefone', {
     id_telefone: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUID, 
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
     },
     telefone: {
       type: DataTypes.STRING(20),
@@ -102,10 +103,10 @@ const Produto = sequelize.define('Produto', {
   
   const ItemPedido = sequelize.define('ItemPedido', {
     id_item: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUID,
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
     },
     fk_Produto_id_produto: {
       type: DataTypes.INTEGER,
@@ -125,8 +126,8 @@ const Produto = sequelize.define('Produto', {
   });
   
   
-  // Usuario -> Telefone
-  Telefone.belongsTo(Usuario, { foreignKey: 'fk_Usuario_id_usuario', onDelete: 'NO ACTION' });
+// Telefone -> Usuario
+  Telefone.belongsTo(Usuario, { foreignKey: 'fk_Usuario_id_usuario', onDelete: 'CASCADE' });
   
   // Pedido -> Usuario
   Pedido.belongsTo(Usuario, { foreignKey: 'fk_Usuario_id_usuario', onDelete: 'CASCADE' });

@@ -1,3 +1,7 @@
+
+
+!!!!!!!!!!!!!!
+
 ! Atencao na pasta modelosBD crie um arquivo .js se nao existir com o nome bdDeclaracao.js e nele cole o codigo a seguir:
 
 

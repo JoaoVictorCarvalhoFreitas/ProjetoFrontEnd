@@ -1,20 +1,34 @@
-// lista de usuarios [nome,email,senha]
-var listaUsuario = [['joao','joao@joao','1234']]
-
-
 //troca entre a aba login e cadastro
+
+import { response } from "express";
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    event.preventDefault();
+
+    document.getElementById("senha-cadastro").addEventListener("focus", ()=> {
+        requisitos.style.display = "block";
+    });
+
+    document.getElementById("requisitos").addEventListener("blur", ()=> {
+        requisitos.style.display = "none";
+    });
+
+    document.getElementById("mostrarLogin_Cadastro").addEventListener("click", mostrarLogin_Cadastro);
+
+    document.getElementById("mostrarSenha").addEventListener("click", mostrarSenhaLogin);
+
+    document.getElementById("checkbox_senha").addEventListener("click", mostrarSenhaSignup);
+    
+    document.getElementById("botaoEntrar").addEventListener("click", login);
+
+
 function mostrarLogin_Cadastro() {
 
     
     var img = document.getElementById("image");
-    var card = document.getElementById("card");
-
-
     var login = document.getElementById("login-side");
     var cadastro = document.getElementById("cadastro-side");
     
-    
-
     if (login.style.display == "none") {
         cadastro.style.opacity = 0;
         setTimeout(HideCadastro,600);
@@ -34,7 +48,6 @@ function mostrarLogin_Cadastro() {
         cadastro.style.opacity = 0;
         setTimeout(ShowCadastro, 600);
     }
-
 
 }
 
@@ -79,21 +92,6 @@ function row() {
     img.style.transform = "translateX(0%)"
 }
 
-// mostra os requisitos da senha caso o campo de senha esteja selecionado
-
-
-const input = document.getElementById("senha-cadastro");
-const requisitos = document.getElementById("requisitos");
-
-input.addEventListener("focus", function() {
-    requisitos.style.display = "block";
-});
-input.addEventListener("blur", function() {
-    requisitos.style.display = "none";
-});
-
-
-
 function mostrarSenhaLogin() {
     var checkbox1 = document.getElementById("mostrarSenha");
 
@@ -109,7 +107,7 @@ function mostrarSenhaLogin() {
 }
 
 function mostrarSenhaSignup() {
-    var checkbox2 = document.getElementById("checkbox");
+    var checkbox2 = document.getElementById("checkbox_senha");
         var senha = document.getElementById("senha-cadastro");
         var confirmsenha = document.getElementById("confirmar-senha");
         if (checkbox2.checked) {
@@ -122,108 +120,35 @@ function mostrarSenhaSignup() {
 }
 
 
+    async function login(event) {
+        event.preventDefault();
 
 
-function logar(event){
+        const email = document.getElementById('email-login').value;
+        const senha = document.getElementById('senha-login').value;
 
-    
-    const email = document.getElementById('email-login').value
-    const senha = document.getElementById('senha-login').value
+        const response = await fetch('/usuarios')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .find
 
-    listaUsuario.forEach(usuario => {
-        if(usuario[1] == email && usuario[2] == senha){
-            return true
-        }else{
-            
-            event.preventDefault()
-        }
+
+
+        // console.log(usuario)
+        // if (usuario == null) {
+        //     console.log('Usuário não existe');
+        //     document.getElementById('usuarioInexistente').style.display = 'block';
+        //     return;
+        // }else{
+        //     if(usuario.senha != senha){
+        //         console.log('Senha incorreta');
+        //         return false
+        //     }
+        // }
+
+
+        // console.log('Usuário existe');
         
     }
-);
-    return false
 
-}
-
-
-// Codigo para o cadastro de usuarios
-
-//validacao de usuario existente ou nao
-function verificaUsuario(email,nome) {
-    document.getElementById('campoObrigatorio').style.display = 'none';
-    if (email == '' || nome == '') {
-        document.getElementById('campoObrigatorio').style.display = 'block';
-        return false
-    }
-
-    for (let i = 0; i < listaUsuarios.length; i++) {
-        if (nome == listaUsuarios[i][0] && email == listaUsuarios[i][1]) {
-            console.log(listaUsuarios[i][0] +" " +nome)
-            console.log('Usuário já existe')
-            document.getElementById('usuarioJaexiste').style.display = 'block';
-            return false
-        }
-    }
-
-    console.log('Usuário não existe')
-    document.getElementById('usuarioJaexiste').style.display = 'none';
-    return true
-}
-
-//validacao para caso as senhas seja diferentes ou nao tenham os caracteres necessarios
-function validaSenha(senha,senha2) {
-
-    if (senha != senha2) {
-        document.getElementById('senhadiferente').style.display = 'block';
-        return
-    }else{
-        document.getElementById('senhadiferente').style.display = 'none';
-    }
-
-    const hasUpperCase = /[A-Z]/.test(senha);
-    const hasLowerCase = /[a-z]/.test(senha);
-    const hasNumbers = /\d/.test(senha);
-    const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(senha);
-
-    if (hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar ) {
-        console.log('Senha válida');
-        document.getElementById('senhaRegex').style.display = 'none'; 
-        return true;
-    } else {
-        console.log('Senha inválida');
-        document.getElementById('senhaRegex').style.display = 'block';
-        return false
-    }
-
-}
-
-
-//realiza as validações anteriores e da um push desse usuario na lista de usuarios
-function cadastrar(event) {
-
-
-    const email = document.getElementById('email-cadastro').value;
-    const nome = document.getElementById('nome-cadastro').value;
-    const senha = document.getElementById('senha-cadastro').value;
-    const senha2 = document.getElementById('confirmar-senha').value;
-    
-    let validasenha = validaSenha(senha,senha2)
-    
-    if(!validasenha){
-        return;
-    }
-    
-    let validaUsuario = verificaUsuario(email,nome)
-
-    if(validaUsuario){
-        document.getElementById('usuarioCadastrado').style.display = 'block';
-        listaUsuarios.push([nome,email,senha])
-        console.log('usuario cadastrado com sucesso')
-    }else{
-        document.getElementById('usuarioCadastrado').style.display = 'none';
-        event.preventDefault()
-    }
-
-}
-
-
-
+});
