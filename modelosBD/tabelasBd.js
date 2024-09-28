@@ -5,8 +5,8 @@ const sequelize = ssequelize;
 
 const Produto = sequelize.define('Produto', {
     id_produto: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: INTEGER,
+      autoIncrement: true,
       primaryKey: true,
       allowNull: false,
 
@@ -111,7 +111,7 @@ const Produto = sequelize.define('Produto', {
       allowNull: false,
     },
     fk_Produto_id_produto: {
-      type: Sequelize.UUID,
+      type: INTEGER
     },
     fk_Pedido_id_pedido: {
       type: Sequelize.UUID,

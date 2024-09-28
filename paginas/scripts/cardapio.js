@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try{
         fetch('/produtos')
-            .then(response => console.log('response:', response) || response.json())
+            .then(resp => resp.json() || console.log("resposta:" + resp)  )
             .then(produtos => {
                 const menuContainer = document.getElementById('menuContainer');
                 menuContainer.innerHTML = produtos.map(criarCardProduto).join('');

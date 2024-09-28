@@ -16,12 +16,13 @@ rota_produtos
     res.json(produto);
     })
     .get('/produtos/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     const produto = await Produto.findByPk(id);
-    return produto ? res.json(produto) : res.status(404).end();
+    produto ? res.json(produto) : res.status(404).end();
+    return produto
     })
     .put('/produtos/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     const produto = await Produto.findByPk(id);
     if (!produto) {
         return res.status(404).end();
@@ -30,7 +31,7 @@ rota_produtos
     res.json(produto);
     })
     .delete('/produtos/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     const produto = await Produto.findByPk(id);
     if (!produto) {
         return res.status(404).end();

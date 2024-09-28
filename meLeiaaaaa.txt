@@ -1,0 +1,15 @@
+
+
+!!!!!!!!!!!!!!
+
+!rode o comando npm install no terminal antes de qualquer coisa
+
+
+!! na pasta modelosBD crie o arquivo bdSenha.js e cole o codigo 
+
+const bdSenha = "senha do seu banco local"
+export default bdSenha
+
+
+
+

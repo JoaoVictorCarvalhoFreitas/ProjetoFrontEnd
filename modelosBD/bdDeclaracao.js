@@ -1,19 +1,13 @@
-
-
-!!!!!!!!!!!!!!
-
-! Atencao na pasta modelosBD crie um arquivo .js se nao existir com o nome bdDeclaracao.js e nele cole o codigo a seguir:
-
-
 import {Sequelize} from 'sequelize';
 import mysql from 'mysql2/promise';
+import bdSenha from './bdSenha.js';
 
 
-async function createDatabaseIfNotExists() {
+async function criaBD() {
     const connection = await mysql.createConnection({
       host: 'localhost',
       user: 'root',  
-      password: 'senha do seu banco local'
+      password: bdSenha
     });
 
     await connection.query('CREATE DATABASE IF NOT EXISTS `bytecafeprodutos`');
@@ -21,15 +15,15 @@ async function createDatabaseIfNotExists() {
 }
 
 
-const ssequelize = new Sequelize('bytecafeprodutos','root','senha do seu banco local',{
+const ssequelize = new Sequelize('bytecafeprodutos','root',bdSenha,{
     host:'localhost',
     dialect: 'mysql' 
    });
 
 
 async function iniciaBanco() {
-    await createDatabaseIfNotExists();  // Cria o banco de dados se não existir
-    await ssequelize.sync();  // Sincroniza as tabelas
+    await criaBD(); 
+    await ssequelize.sync();
 }
 
 iniciaBanco().then(() => {

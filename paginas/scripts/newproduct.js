@@ -77,3 +77,5 @@ async function cadastrarProduto(e) {
 
 document.getElementById("produtoForm").addEventListener("submit", cadastrarProduto);
 
+
+
