@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize} from "sequelize";
+import { DataTypes, INTEGER, Sequelize} from "sequelize";
 import ssequelize from "./bdDeclaracao.js";
 
 const sequelize = ssequelize;
@@ -6,12 +6,14 @@ const sequelize = ssequelize;
 const Produto = sequelize.define('Produto', {
     id_produto: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
       allowNull: false,
+
     },
     nome: {
       type: DataTypes.STRING,
+      unique: true,
     },
     descricao: {
       type: DataTypes.TEXT,
@@ -34,7 +36,7 @@ const Produto = sequelize.define('Produto', {
   const Usuario = sequelize.define('Usuario', {
     id_usuario: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4, 
       primaryKey: true,
     },
     nome: {
@@ -64,7 +66,7 @@ const Produto = sequelize.define('Produto', {
   const Pedido = sequelize.define('Pedido', {
     id_pedido: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4, 
       primaryKey: true,
       allowNull: false,
     },
@@ -81,7 +83,7 @@ const Produto = sequelize.define('Produto', {
       type: DataTypes.BOOLEAN,
     },
     fk_Usuario_id_usuario: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
     },
   }, {
     tableName: 'Pedido',
@@ -90,7 +92,7 @@ const Produto = sequelize.define('Produto', {
   const Telefone = sequelize.define('Telefone', {
     id_telefone: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4, 
       primaryKey: true,
       allowNull: false,
     },
@@ -104,15 +106,15 @@ const Produto = sequelize.define('Produto', {
   const ItemPedido = sequelize.define('ItemPedido', {
     id_item: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
       allowNull: false,
     },
     fk_Produto_id_produto: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
     },
     fk_Pedido_id_pedido: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.UUID,
     },
     preco_unitario: {
       type: DataTypes.DOUBLE,

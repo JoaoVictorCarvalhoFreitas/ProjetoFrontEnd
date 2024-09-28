@@ -13,12 +13,12 @@ rota_pedidos
     res.json(pedido);
     })
     .get('/pedidos/:id', async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params.id;
     const pedido = await Pedido.findByPk(id);
     return pedido ? res.json(pedido) : res.status(404).end();
     })
     .put('/pedidos/:id', async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params.id;
     const pedido = await Pedido.findByPk(id)
     if (!pedido) {
         return res.status(404).end();
@@ -26,3 +26,14 @@ rota_pedidos
     pedido.update(req.body);
     res.json(pedido);
     })
+    .delete('/pedidos/:id', async (req, res) => {
+    const { id } = req.params.id;
+    const pedido = await Pedido.findByPk(id);
+    if (!pedido) {
+        return res.status(404).end();
+    }
+    pedido.destroy();
+    res.json(pedido);
+    });
+
+    export default rota_pedidos;
