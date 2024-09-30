@@ -17,7 +17,6 @@ rota_produtos
         console.log('Produto já cadastrado');
         return res.status(409).end();
     }
-    
     const produto = await Produto.create(req.body);
     res.json(produto);
     })
@@ -29,38 +28,15 @@ rota_produtos
     })
     .put('/produtos/:id', async (req, res) => {
     const { id } = req.params;
-
+    console.log('id:', id);
     const produto = await Produto.findByPk(id);
-    if (!produto) {
+    if (produto == null) {
+        console.log("produto não encontrado");
         return res.status(404).end();
     }
-    let {Novonome, Novodescricao, Novopreco, Novocategoria, NovoimagemUrl} = req.body;
-    if(Novonome!=produto.nome && Novonome!=null){
-        produto.nome = Novonome;
-    }else{
-        Novonome = produto.nome;
-    }
-    if(Novodescricao!=produto.descricao && Novodescricao!=null){
-        produto.descricao = Novodescricao;
-    }else{
-        Novodescricao = produto.descricao;
-    }
-    if(Novopreco!=produto.preco && Novopreco!=null){
-        produto.preco = Novopreco;
-    }else{
-        Novopreco = produto.preco;
-    }
-    if(Novocategoria!=produto.categoria && Novocategoria!=null){
-        produto.categoria = Novocategoria;
-    }else{
-        Novocategoria = produto.categoria;
-    }
-    if(NovoimagemUrl!=produto.imagemUrl && NovoimagemUrl!=null){
-        produto.imagemUrl = NovoimagemUrl;
-    }else{
-        NovoimagemUrl = produto.imagemUrl;
-    }
-    produto.update({Novonome, Novodescricao, Novopreco, Novocategoria, NovoimagemUrl});
+    const b = req.body;
+
+    produto.update(b);
     res.json(produto);
     })
 

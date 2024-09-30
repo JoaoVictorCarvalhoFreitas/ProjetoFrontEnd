@@ -15,7 +15,9 @@ function search() {
 
 }
 
-function mostraModal() {
+function mostraModal(id) {
+    document.getElementById("botaoAdicionar").dataset.id  = id; // ! Adiciona o ID ao botão
+    
         const modal = document.getElementById("modal-new");
         let innermodal = document.getElementById("inner-modal");
         if(modal.style.display == "none"){
@@ -30,6 +32,8 @@ function mostraModal() {
             setTimeout( () => modal.style.display = "none", 490);
         }
 
+
+return id
 }  
 
 async function cadastrarProduto() {
@@ -144,13 +148,12 @@ async function deletarProduto(id){
 
 async function editarProduto(id){
 
-
-
     const nome = document.getElementById("nomeProduto").value;
     const descricao = document.getElementById("descricaoProduto").value;
     const preco = document.getElementById("precoProduto").value;
-    const categoria = document.getElementById("categoriaProduto").value;
+    const categoria = document.getElementById("Modal_categoriaProduto").value;
     const imagemUrl = document.getElementById("imagemUrlProduto").value;
+
     const corpo = {
         nome: nome,
         descricao: descricao,
@@ -169,21 +172,16 @@ async function editarProduto(id){
     }).then(response => {
         console.log('resposta:', response);
     })
-    .then(e => e.preventDefault())
     .catch(error => console.error('Erro ao editar produto:', error));
-
+    location.reload();
 }
 
 function atribuiBotaoDeletar(){
     document.querySelectorAll('.botaoDeletar').forEach(but => {
         but.addEventListener('click', (e) => {
-
-
             const idProduto = e.target.dataset.id;
             console.log(`ID do produto a ser deletado: ${idProduto}`);
             deletarProduto(idProduto);
-
-
         });
     });
 }
@@ -192,34 +190,50 @@ function atribuiBotaoEditar(){
     
     document.querySelectorAll('.botaoEditar').forEach(but => {
         but.addEventListener('click', (e) => {
-            const idProduto = e.target.dataset.id;
-            console.log(`ID do produto a ser editado: ${idProduto}`);
-
+            const id = e.target.dataset.id 
+            console.log(`ID do produto a ser editado: ${id}`);
             document.getElementById("tituloModal").innerHTML = "Editar Produto";
-            document.getElementById("botaoAdicionar").innerHTML = "Editar";
-            document.getElementById("botaoAdicionar").dataset.id = "editar";
-            document.getElementById("editar").addEventListener("click", async () => await editarProduto(idProduto));
-
-            document.getElementById("tituloModal").innerHTML = "Adicionar Produto";
-            document.getElementById("botaoAdicionar").innerHTML = "Adicionar";
-            document.getElementById("editar").dataset.id = "botaoAdicionar";
-
-
-
+            document.getElementById("botaoAdicionar").innerHTML = "editar";            
+            mostraModal(id);
         });
+    
     });
-
-
 }
- 
+
+
 document.addEventListener("DOMContentLoaded", carregarProdutos);
 
 document.getElementById("produtoForm").addEventListener("submit", cadastrarProduto);
 
 document.getElementById("categoriaProduto").addEventListener("change", carregarCategorias);
 
-document.getElementById("botaoModalCadastrar").addEventListener("click", mostraModal);
+document.getElementById("botaoAdicionar").addEventListener("click", (event) => {
+    event.preventDefault();
+    const id = document.getElementById("botaoAdicionar").innerHTML;
+    console.log("ID do botão:", id);
+    const idProd = document.getElementById("botaoAdicionar").dataset.id;
+    console.log("ID do produto:", idProd);
 
+    if(id== "editar"){
+        console.log("editar: "+ idProd)
+        editarProduto(idProd);
+    }
+    else{
+        console.log("adicionar")
+        cadastrarProduto();
+    }
+}
+)
+
+document.getElementById("Produto").addEventListener("click", () => {
+    document.getElementById("botaoAdicionar").innerHTML = "Adicionar";
+    document.getElementById("tituloModal").innerHTML = "Adicionar Produto";
+    mostraModal();
+});
+
+document.getElementById("botaoFecharModal").addEventListener("click", () => {
+    mostraModal()
+})
 
 
 // document.querySelectorAll('.botaoDeletar').forEach(but => {
@@ -229,4 +243,3 @@ document.getElementById("botaoModalCadastrar").addEventListener("click", mostraM
 //           deletarProduto(idProduto);
 //         });
 // });
-
