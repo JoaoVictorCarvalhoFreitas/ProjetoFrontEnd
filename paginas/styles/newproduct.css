@@ -185,7 +185,11 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-p:fir
+#prodImagem{
+    max-width: 6vi;
+    max-height: 6vi;
+}
+
 
 .modal-new {
     width: 100%;

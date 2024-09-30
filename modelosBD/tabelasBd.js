@@ -22,7 +22,7 @@ const Produto = sequelize.define('Produto', {
       type: DataTypes.DOUBLE,
     },
     categoria: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(50),
     },
     imagemUrl: {
       type: DataTypes.TEXT,

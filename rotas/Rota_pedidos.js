@@ -9,6 +9,7 @@ rota_pedidos
     res.json(pedidos);
     })
     .post('/pedidos', async (req, res) => {
+
     const pedido = await Pedido.create(req.body);
     res.json(pedido);
     })
