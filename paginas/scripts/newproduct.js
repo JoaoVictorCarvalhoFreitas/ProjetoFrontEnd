@@ -43,6 +43,12 @@ async function cadastrarProduto() {
     const categoria = document.getElementById("Modal_categoriaProduto").value;
     const imagemUrl = document.getElementById("imagemUrlProduto").value;
 
+    if(!nome || !preco || !categoria){
+        alert("Preencha todos os campos obrigatórios nome, preço e categoria");
+        event.preventDefault();
+        return;
+    }
+
     const corpo = {
         nome: nome,
         descricao: descricao,
@@ -51,7 +57,12 @@ async function cadastrarProduto() {
         imagemUrl: imagemUrl
     };
 
+
+
+
+
     try{
+
         const produto = await fetch('/produtos', {
             method: 'POST',
             headers: {
@@ -69,7 +80,7 @@ async function cadastrarProduto() {
             console.error('Erro ao salvar produto:', error);
         }).then(() => carregarCategorias());
     } catch (error) {
-        console.error('Erro ao salvar produto:', error);
+        throw('Erro ao salvar produto:', error);
     }
 
     location.reload();

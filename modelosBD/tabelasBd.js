@@ -36,16 +36,13 @@ const Produto = sequelize.define('Produto', {
   const Usuario = sequelize.define('Usuario', {
     id_usuario: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4, 
+      defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
     nome: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    sobrenome: {
-        type: DataTypes.STRING(50),
-      },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -57,6 +54,7 @@ const Produto = sequelize.define('Produto', {
     },
     data_criacao: {
         type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     },
   }, {
     tableName: 'Usuario',

@@ -19,7 +19,8 @@ rota_usuarios
   })
     .post('/usuarios', async (req, res) => {
     const usuario = await Usuario.create(req.body);
-    res.json(usuario);
+    res.json("Usuário cadastrado com sucesso: " + usuario);
+
   })
     .get(' usuarios/:id', async (req, res) => {
     const { id } = req.params.id;
