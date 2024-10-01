@@ -72,7 +72,7 @@ async function cadastrarProduto() {
         console.error('Erro ao salvar produto:', error);
     }
 
-
+    location.reload();
 }
 
 function criarCardProduto(prod){
@@ -99,45 +99,63 @@ function criarCardProduto(prod){
     `
 }   
 
-function carregarProdutos(){
+async function carregarProdutos(){
     
     const menuContainer = document.getElementById('TabelaCorpo');
     menuContainer.innerHTML = '';
-    fetch('/produtos')
-    .then(resp => resp.json())
-    .then(produtos => {
-        menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
-        atribuiBotaoDeletar();
-        atribuiBotaoEditar();
-    
-    }
-    )
-    .catch(error => console.error('Erro ao carregar produtos:', error));
-} 
 
-function carregarCategorias(){
+    try{
+        await fetch('/produtos')
+        .then(resp => resp.json())
+        .then(produtos => {
+            menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
+            atribuiBotaoDeletar();
+            atribuiBotaoEditar();
+        
+        }
+        )
+        .catch(error => console.error('Erro ao carregar produtos:', error));
+    } catch (error) {
+    console.error('Erro ao carregar produtos:', error);
+    }
+}
+
+
+async function carregarCategorias(){
 
     const categoria = document.getElementById('categoriaProduto').value;
     const menuContainer = document.getElementById('TabelaCorpo');
     menuContainer.innerHTML = '';
 
-    fetch('/produtos')
-    .then(resp => resp.json())
-    .then(produtos => {   
-            menuContainer.innerHTML = produtos.map((prod)=>{
+    try{
+        await fetch('/produtos')
+        .then(resp => resp.json())
+        .then(produtos => {   
+                menuContainer.innerHTML = produtos.map((prod)=>{
+    
+                    if(categoria == "todos"){
+                        return criarCardProduto(prod);
+                    }
+                    if(prod.categoria == categoria){
+                        return criarCardProduto(prod);
+                    }
+                }).join('');}
+        )
+        .catch(error => console.error('Erro ao carregar categorias:', error));
 
-                if(categoria == "todos"){
-                    return criarCardProduto(prod);
-                }
-                if(prod.categoria == categoria){
-                    return criarCardProduto(prod);
-                }
-            }).join('');}
-    )
-    .catch(error => console.error('Erro ao carregar categorias:', error));
+    } catch (error) {
+        console.error('Erro ao carregar categorias:', error);
+    }
 }
 
 async function deletarProduto(id){
+
+    alerta = prompt("Deseja realmente deletar o produto? Digite 'sim' para confirmar").toLowerCase();
+
+    if(alerta != "sim" ){
+        return;
+    }
+
     await fetch(`/produtos/${id}`, {
         method: 'DELETE',
     })
@@ -153,6 +171,7 @@ async function editarProduto(id){
     const preco = document.getElementById("precoProduto").value;
     const categoria = document.getElementById("Modal_categoriaProduto").value;
     const imagemUrl = document.getElementById("imagemUrlProduto").value;
+
 
     const corpo = {
         nome: nome,

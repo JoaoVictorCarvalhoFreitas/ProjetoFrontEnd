@@ -1,10 +1,8 @@
 //troca entre a aba login e cadastro
 
-import { response } from "express";
-
 document.addEventListener("DOMContentLoaded", function(event) {
     event.preventDefault();
-
+    // const requisitos = document.getElementById("requisitos");
     document.getElementById("senha-cadastro").addEventListener("focus", ()=> {
         requisitos.style.display = "block";
     });
@@ -20,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("checkbox_senha").addEventListener("click", mostrarSenhaSignup);
     
     document.getElementById("botaoEntrar").addEventListener("click", login);
+
+    document.getElementById("jaPossuiConta").addEventListener("click", mostrarLogin_Cadastro);
+
+
 
 
 function mostrarLogin_Cadastro() {
@@ -120,35 +122,61 @@ function mostrarSenhaSignup() {
 }
 
 
-    async function login(event) {
-        event.preventDefault();
-
-
-        const email = document.getElementById('email-login').value;
-        const senha = document.getElementById('senha-login').value;
-
-        const response = await fetch('/usuarios')
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .find
-
-
-
-        // console.log(usuario)
-        // if (usuario == null) {
-        //     console.log('Usuário não existe');
-        //     document.getElementById('usuarioInexistente').style.display = 'block';
-        //     return;
-        // }else{
-        //     if(usuario.senha != senha){
-        //         console.log('Senha incorreta');
-        //         return false
-        //     }
-        // }
-
-
-        // console.log('Usuário existe');
-        
-    }
 
 });
+
+
+async function login(event) {
+    event.preventDefault();
+
+
+    const email = document.getElementById('email-login').value;
+    const senha = document.getElementById('senha-login').value;
+
+
+    try{
+        const usuarioBD = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json', 
+            },
+            body: JSON.stringify({email: email, senha: senha})
+        })    
+        .then()
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+    }catch(error){
+        console.log(error)
+    }
+}
+
+async function cadastro(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome-cadastro').value;
+    const email = document.getElementById('email-cadastro').value;
+    const senha = document.getElementById('senha-cadastro').value;
+    const confirmarSenha = document.getElementById('confirmar-senha').value;
+
+    if(senha != confirmarSenha){
+        alert('As senhas não coincidem');
+        return;
+    }
+
+    try{
+        const usuarioBD = await fetch('/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json', 
+            },
+            body: JSON.stringify({nome: nome, email: email, senha: senha})
+        })    
+        .then()
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+    }catch(error){
+        console.log(error)
+    }
+}

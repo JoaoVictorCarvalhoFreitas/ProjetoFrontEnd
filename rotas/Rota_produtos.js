@@ -30,16 +30,33 @@ rota_produtos
     const { id } = req.params;
     console.log('id:', id);
     const produto = await Produto.findByPk(id);
+
     if (produto == null) {
         console.log("produto não encontrado");
         return res.status(404).end();
     }
-    const b = req.body;
 
-    produto.update(b);
-    res.json(produto);
+    const corpo = req.body;
+    if(corpo.nome){
+        produto.nome = corpo.nome;
+    }
+    if(corpo.descricao){
+        produto.descricao = corpo.descricao;
+    }
+    if(corpo.preco){
+        produto.preco = corpo.preco;
+    }
+    if(corpo.categoria){
+        produto.categoria = corpo.categoria;
+    }
+    if(corpo.imagemUrl){
+        produto.imagemUrl = corpo.imagemUrl;
+    }
+    await produto.save();
+    
+        res.json(produto);
     })
-
+    
     .delete('/produtos/:id', async (req, res) => {
     const { id } = req.params;
     const produto = await Produto.findByPk(id);

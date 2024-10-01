@@ -7,6 +7,16 @@ rota_usuarios
     const usuarios = await Usuario.findAll();
     res.json(usuarios);
   })
+    .post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+    const usuario = await Usuario.findOne({ where: { email, senha } });
+    if (!usuario) {
+        return res.status(404).end();
+    }
+    if(usuario.email == email && usuario.senha == senha){
+    res.json(usuario);
+  }
+  })
     .post('/usuarios', async (req, res) => {
     const usuario = await Usuario.create(req.body);
     res.json(usuario);
