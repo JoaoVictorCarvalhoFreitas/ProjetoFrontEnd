@@ -5,9 +5,9 @@ import bdSenha from './bdSenha.js';
 
 async function criaBD() {
     const connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',  
-      password: bdSenha
+        host: 'localhost',
+        user: 'root',  
+        password: bdSenha
     });
 
     await connection.query('CREATE DATABASE IF NOT EXISTS `bytecafeprodutos`');
@@ -18,7 +18,7 @@ async function criaBD() {
 const ssequelize = new Sequelize('bytecafeprodutos','root',bdSenha,{
     host:'localhost',
     dialect: 'mysql' 
-   });
+});
 
 
 async function iniciaBanco() {

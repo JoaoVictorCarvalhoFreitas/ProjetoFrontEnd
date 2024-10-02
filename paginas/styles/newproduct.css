@@ -238,8 +238,19 @@ input[type="number"]::-webkit-outer-spin-button {
                     };
                 }
             }
+            .nome-input,.divdescricaoProduto,.img-input,.categoria-input,.preco-input {
+                display: flex;
+                flex-direction: column;
+                label {
+                    padding-bottom:1vi ;
+                }
+            }
         }
     }
+}
+
+textarea {
+    resize: none;
 }
 
 @keyframes slideup {
@@ -263,5 +274,29 @@ input[type="number"]::-webkit-outer-spin-button {
     }
     100% {
         bottom: 0vi;
+    }
+}
+
+@keyframes blur-in {
+    0% {
+        opacity: 0%;
+    }
+    50% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 100%;
+    }
+} 
+
+@keyframes blur-out {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 0%;
     }
 }
