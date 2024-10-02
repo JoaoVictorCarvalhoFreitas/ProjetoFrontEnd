@@ -22,13 +22,13 @@ function mostraModal(id) {
         let innermodal = document.getElementById("inner-modal");
         if(modal.style.display == "none"){
             modal.style.display = "flex";
-            modal.style.animation = "slidedown 0.5s ease-in-out";
+            modal.style.animation = "blur-in 0.5s ease-in-out";
             innermodal.style.animation = "slidedown 0.5s ease-in-out";
 
         }
         else{
             innermodal.style.animation = "slideup 0.5s ease-in-out"
-            modal.style.animation = "slideup 0.5s ease-in-out"
+            modal.style.animation = "blur-out 0.5s ease-in-out"
             setTimeout( () => modal.style.display = "none", 490);
         }
 
