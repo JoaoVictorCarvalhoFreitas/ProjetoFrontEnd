@@ -14,8 +14,9 @@ rota_usuarios
         return res.status(404).end();
     }
     if(usuario.email == email && usuario.senha == senha){
-    res.json(usuario);
-  }
+      console.log("Usuário logado com sucesso: " + usuario.nome)
+      res.send("Usuário logado com sucesso: " + usuario.nome);  
+    }
   })
     .post('/usuarios', async (req, res) => {
     const usuario = await Usuario.create(req.body);

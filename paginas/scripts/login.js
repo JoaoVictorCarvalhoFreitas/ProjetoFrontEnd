@@ -97,11 +97,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function mostrarSenhaLogin() {
-        var checkbox1 = document.getElementById("mostrarSenha");
+        const checkbox1 = document.getElementById("mostrarSenha");
 
-            var senha = document.getElementById("senha-login");
-            var img = document.getElementById("eye");
+            const senha = document.getElementById("senhaLogin")
+            const img = document.getElementById("eye");
+
+
+
             if (checkbox1.checked) {
+                console.log(senha.type)
                 senha.type = "text";
                 img.src = "src/eye-off-svgrepo-com.svg";
             } else {
@@ -111,9 +115,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function mostrarSenhaSignup() {
-        var checkbox2 = document.getElementById("checkbox_senha");
-            var senha = document.getElementById("senha-cadastro");
-            var confirmsenha = document.getElementById("confirmar-senha");
+        const checkbox2 = document.getElementById("checkbox_senha");
+            const senha = document.getElementById("senhaCadastro");
+            const confirmsenha = document.getElementById("confirmarSenha");
             if (checkbox2.checked) {
                 senha.type = "text";
                 confirmsenha.type = "text";
@@ -133,8 +137,8 @@ async function login(event) {
     event.preventDefault();
 
 
-    const email = document.getElementById('email-login').value;
-    const senha = document.getElementById('senha-login').value;
+    const email = document.getElementById('emailLogin').value;
+    const senha = document.getElementById('senhaLogin').value;
 
 
     try{
@@ -145,9 +149,16 @@ async function login(event) {
                 'Accept': 'application/json', 
             },
             body: JSON.stringify({email: email, senha: senha})
-        })    
-        .then()
-        .then(resp => {console.log(resp); alert(resp)})
+        })      
+        .then(resp => {
+            if(resp.status == 404){
+                alert("Usuario não encontrado")
+                return;
+                
+            }else if(resp.status == 200){
+                alert("Usuario logado com sucesso");
+            }
+            console.log("Usuario logado com sucesso: ")})
         .catch(error => console.log(error));
     }catch(error){
         console.log(error)
@@ -166,9 +177,6 @@ async function cadastro(event) {
         alert('As senhas não coincidem');
         return;
     }
-
-    
-
     try{
         const usuarioBD = await fetch('/usuarios', {
             method: 'POST',
