@@ -238,14 +238,17 @@ input[type="number"]::-webkit-outer-spin-button {
                     };
                 }
             }
-            .nome-input,.divdescricaoProduto,.img-input,.categoria-input,.preco-input {
+            .nome-input,#divdescricaoProduto,.img-input,.categoria-input,.preco-input {
                 display: flex;
                 flex-direction: column;
+                padding-left: 0.5vi;
                 label {
-                    padding-bottom:1vi ;
+                    padding-bottom:0.5vi ;
                 }
             }
-        }
+            #nomeProduto,#descricaoProduto,#imagemUrlProduto,#Modal_categoriaProduto,#precoProduto {
+                width: 80% ;
+            }
     }
 }
 
