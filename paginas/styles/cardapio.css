@@ -1,0 +1,15 @@
+.produtoText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.precoComprar {
+    display: flex;
+}
+
+#comprar {
+    padding: 0 10% 0 10%;
+}
