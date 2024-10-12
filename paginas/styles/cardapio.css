@@ -1,3 +1,21 @@
+body {
+    background-color: rgb(232, 224, 209);
+}
+
+.iconMenu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 67%;
+    margin: auto;
+    background-color: rgb(248, 233, 203);
+}
+#prodDiv1 {
+    margin-top: 2%;
+}
+
 .produtoText {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -6,6 +24,9 @@
     -webkit-box-orient: vertical;
 }
 
+.arquivo-icon {
+    margin: 0 0 1% 50%;
+}
 
 .prodNome {
     overflow: hidden;
