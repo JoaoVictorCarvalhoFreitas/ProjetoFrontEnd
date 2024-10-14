@@ -2,21 +2,27 @@ body {
     background-color: rgb(232, 224, 209);
 }
 
+.icon-nav {
+    background-color: rgb(230, 218, 197);
+    width: 10em;
+    border-radius: 10%;
+}
+
 .iconMenu {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 5px solid black;
-    border-radius: 10px;
+    justify-content: center;
+    background-color: rgb(230, 218, 197);;
+    border: 2px solid rgb(228, 193, 163);
+    border-radius: 50px;
     width: 67%;
     margin: auto;
-    background-color: rgb(248, 233, 203);
 }
 #prodDiv1 {
     margin-top: 2%;
 }
 
 .produtoText {
+    height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
