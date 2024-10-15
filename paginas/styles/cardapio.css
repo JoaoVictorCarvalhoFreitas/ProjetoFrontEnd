@@ -1,4 +1,28 @@
+body {
+    background-color: rgb(232, 224, 209);
+}
+
+.icon-nav {
+    background-color: rgb(230, 218, 197);
+    width: 10em;
+    border-radius: 10%;
+}
+
+.iconMenu {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 218, 197);;
+    border: 2px solid rgb(228, 193, 163);
+    border-radius: 50px;
+    width: 67%;
+    margin: auto;
+}
+#prodDiv1 {
+    margin-top: 2%;
+}
+
 .produtoText {
+    height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -6,6 +30,9 @@
     -webkit-box-orient: vertical;
 }
 
+.arquivo-icon {
+    margin: 0 0 1% 50%;
+}
 
 #prodNome {
     overflow: hidden;
