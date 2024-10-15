@@ -18,7 +18,7 @@ rota_produtos
         return res.status(409).end();
     }
     const produto = await Produto.create(req.body);
-    res.json(produto);
+    res.json(produto);  
     })
     .get('/produtos/:id', async (req, res) => {
     const { id } = req.params;

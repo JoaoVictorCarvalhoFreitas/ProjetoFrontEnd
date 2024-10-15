@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card card-menu" id="prodDiv2">
                     <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                     <div class="card-body">
-                        <h5 class="card-title produtoText" id="prodNome">${prod.nome}</h5>
+                        <h5 class="card-title" id="prodNome">${prod.nome}</h5>
                         <p class=produtoText>Descrição</p>
                         <p class="card-text" id="prodPreco">R$ ${parseFloat(prod.preco).toFixed(2)}</p>
                         <div class="precoComprar">
