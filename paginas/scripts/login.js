@@ -134,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 async function login(event) {
+
     event.preventDefault();
 
 
@@ -151,18 +152,25 @@ async function login(event) {
             body: JSON.stringify({email: email, senha: senha})
         })      
         .then(resp => {
-            if(resp.status == 404){
+            if(resp.status == 401){
                 alert("Usuario não encontrado")
+
                 return;
                 
             }else if(resp.status == 200){
-                alert("Usuario logado com sucesso");
+                console.log("Usuario logado com sucesso: ")
+                localStorage.setItem('email', email)
+                localStorage.setItem('senha',senha)
+                location.href = "index.html"
+               
             }
-            console.log("Usuario logado com sucesso: ")})
+
+        })
         .catch(error => console.log(error));
     }catch(error){
         console.log(error)
     }
+    
 }
 
 async function cadastro(event) {
@@ -185,8 +193,7 @@ async function cadastro(event) {
                 'Accept': 'application/json', 
             },
             body: JSON.stringify({nome: nome, email: email, senha: senha})
-        })    
-        .then(resp => alert(resp) )
+        })
         .catch(error => console.log(error));
         location.reload();
     }catch(error){
