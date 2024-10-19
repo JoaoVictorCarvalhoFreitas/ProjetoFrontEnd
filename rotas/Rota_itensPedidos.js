@@ -3,7 +3,7 @@ import { ItemPedido } from "../modelosBD/tabelasBd.js";
 
 const rota_itensPedidos = Router();
 
-rota_itensPedidos
+rota_itensPedidos   
     .get('/itens_pedido', async (req, res) => {
     const itens = await ItemPedido.findAll();
     res.json(itens);

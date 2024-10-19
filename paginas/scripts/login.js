@@ -142,6 +142,8 @@ async function login(event) {
     const senha = document.getElementById('senhaLogin').value;
 
 
+
+
     try{
         const usuarioBD = await fetch('/login', {
             method: 'POST',
@@ -158,12 +160,14 @@ async function login(event) {
                 return;
                 
             }else if(resp.status == 200){
-                console.log("Usuario logado com sucesso: ")
-                localStorage.setItem('email', email)
-                localStorage.setItem('senha',senha)
-                location.href = "index.html"
-               
+                return resp.json();         
             }
+        })
+        .then(id_usuario => {
+            localStorage.setItem('email', email)
+            localStorage.setItem('senha',senha)
+            localStorage.setItem('id_usuario', id_usuario)
+            location.href = "index.html"
 
         })
         .catch(error => console.log(error));

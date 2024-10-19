@@ -14,13 +14,13 @@ rota_usuarios
         return res.status(404).end();
     }
     if(usuario.email == email && usuario.senha == senha){
-      console.log("Usuário logado com sucesso: " + usuario.nome)
-      res.send("Usuário logado com sucesso: " + usuario.nome);  
+      console.log("Usuário logado com sucesso: " + usuario.nome + "id: " + usuario.id_usuario)
+      res.json(usuario.id_usuario);  
     }
   })
     .post('/usuarios', async (req, res) => {
     const usuario = await Usuario.create(req.body);
-    res.json("Usuário cadastrado com sucesso: " + usuario);
+    res.json("Usuário cadastrado com sucesso: " + usuario.id_usuario);
 
   })
     .get(' usuarios/:id', async (req, res) => {
