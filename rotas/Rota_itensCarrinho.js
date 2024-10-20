@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { itensCarrinho, Produto } from "../modelosBD/tabelasBd.js";
+import { where } from "sequelize";
 const rota_itensCarrinho = Router();
 
 rota_itensCarrinho
@@ -14,8 +15,12 @@ rota_itensCarrinho
     })
     .post('/adicionaCarrinho', async (req,res) =>{
         try{    
-            console.log(req.body);
-            const item = await itensCarrinho.create(req.body);
+            const id_produto= parseInt(req.body.id_produto);
+            const id_usuario = parseInt(req.body.id_usuario);
+            const quantidade = parseInt(req.body.quantidade);
+            const preco = parseFloat(req.body.preco);
+
+            const item = await itensCarrinho.create({id_produto, id_usuario, quantidade, preco});
             res.json(item);
         }catch(error){
             res.send({error: error.message});
@@ -32,8 +37,16 @@ rota_itensCarrinho
     })
     .delete('/deletaItem', async (req,res) =>{
 
-        const item = await itensCarrinho.findByPk(req.body.id_produto, req.body.id_usuario);
-        item? item.destroy().then(res => res.json()): res.json({error: "Item não encontrado"});
+        console.log(req.body.id_produto + " :" + req.body.id_usuario);
+        const {id_produto, id_usuario} = req.body;
+        const item = await itensCarrinho.findOne({where:{id_produto:id_produto, id_usuario:id_usuario}})
+        if(item){
+            await item.destroy();
+            res.json({success: true});
+        }else{
+            res.json({success: false});
+        }
+
     })
 
 export default rota_itensCarrinho;

@@ -25,7 +25,8 @@ function adEventList(){
                     'Accept': 'application/json',
                 },
             })
-            const respo = resp.json().preco
+            .then(resp => resp.json());
+            console.log(resp);
 
             
 
@@ -37,7 +38,7 @@ function adEventList(){
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify({id_usuario: usuario , id_produto: idProduto, quantidade: quantidade, preco: respo}),
+            body: JSON.stringify({id_usuario: usuario , id_produto: idProduto, quantidade: quantidade, preco: resp.preco}),
          })
             .then(resp => resp.json())
             .then(data => {

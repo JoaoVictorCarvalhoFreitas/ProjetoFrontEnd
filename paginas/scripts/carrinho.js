@@ -1,5 +1,8 @@
+
+
 async function carregarProdutos() {
     try {
+        document.getElementById("ListaProd").innerHTML = "";
         const usuario = localStorage.getItem('id_usuario');
         const produtos = await fetch(`/itensCarrinho/${usuario}`, {
             method: "GET",
@@ -91,7 +94,7 @@ function adicionaEventoDeleta(){
 function deletaItem(id_produto) {
     const id_usuario = localStorage.getItem('id_usuario');
 
-    fetch(`/deletaItem`, {
+    fetch('/deletaItem', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -105,8 +108,9 @@ function deletaItem(id_produto) {
         } else {
             alert('Erro ao remover produto do carrinho');
         }
-    })
-    .catch(error => console.error('Erro ao remover produto do carrinho:', error));
+    }).finally(() => carregarProdutos())
+    .catch(error => console.error('Erro ao remover produto do carrinho:err', error));
+
 }
 
 carregarProdutos();
