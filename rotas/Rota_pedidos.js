@@ -35,6 +35,16 @@ rota_pedidos
     }
     pedido.destroy();
     res.json(pedido);
-    });
+    })
+    .post('/finalizarCompra', async (req, res) => {
+        try{
+            const pedido = await Pedido.create(req.body);
+            res.json({ success: true, pedido });
+        }catch(error){
+            console.error('Erro ao finalizar compra:', error);
+            res.json({ success: false });
+        }
+    })
+    
 
     export default rota_pedidos;

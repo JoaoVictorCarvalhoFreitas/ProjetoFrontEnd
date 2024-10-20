@@ -1,9 +1,9 @@
-
+const carrinho = []
 
 async function carregarProdutos() {
     try {
         document.getElementById("ListaProd").innerHTML = "";
-        const usuario = localStorage.getItem('id_usuario');
+        const usuario = sessionStorage.getItem('id_usuario');
         const produtos = await fetch(`/itensCarrinho/${usuario}`, {
             method: "GET",
             headers: {
@@ -13,12 +13,19 @@ async function carregarProdutos() {
         }).then(resp => resp.json());
 
         produtos.forEach(prod => {
+            carrinho.push(prod);
+        } )
+        console.log(carrinho);
+        produtos.forEach(prod => {
             document.getElementById("ListaProd").innerHTML += criarCardProduto(prod);
         });
 
         // Adicionar event listener para alterar a quantidade
         adicionarEventosQuantidade();
         adicionaEventoDeleta()
+        precoTotal()
+        finalizarCompra()
+        
 
         
 
@@ -53,34 +60,38 @@ function adicionarEventosQuantidade() {
             
 
             // Atualizar o preço total do produto na interface
-            const produto = await fetch(`/produtos/${id_produto}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "accept": "application/json"
+
+            carrinho.forEach(prod => {
+                if(prod.id_produto == id_produto){
+                    prod.quantidade = novaQuantidade;
                 }
-            }).then(resp => resp.json());
 
-            // Recalcular o preço total com base na nova quantidade
-            const novoPrecoTotal = produto.preco * novaQuantidade;
-
-            // Atualizar o elemento que mostra o preço total
-            document.querySelector(`.preco-produto[data-id="${id_produto}"]`).textContent = `R$ ${novoPrecoTotal.toFixed(2)}`;
-
-            // Opcional: Se quiser salvar a nova quantidade no servidor
-            try {
-                await fetch('/atualizaQuantidade', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({  id_produto, quantidade: novaQuantidade })
-                });
-            } catch (error) {
-                console.error('Erro ao atualizar a quantidade:', error);
-            }
-        });
+                if(prod.id_produto == id_produto){
+                    document.querySelector(`.preco-produto[data-id="${id_produto}"]`).innerHTML = `R$ ${(prod.preco * prod.quantidade).toFixed(2)}`;
+                }
+            })
+            precoTotal()
     });
+})}
+
+async function precoTotal() {
+
+    const subtotal = document.getElementById('subtotal');
+    const total = document.getElementById('precototal');
+    const frete = document.getElementById('frete');
+
+
+    let totalProdutos = 0;
+    carrinho.forEach(prod => {
+        totalProdutos += (prod.preco * prod.quantidade);
+    })
+
+    subtotal.innerHTML = `R$ ${totalProdutos.toFixed(2)}`;
+    frete.innerHTML = 'R$ 10,00';
+    total.innerHTML = `R$ ${(totalProdutos + 10).toFixed(2)}`;
+
+
+
 }
 
 
@@ -92,7 +103,7 @@ function adicionaEventoDeleta(){
 }
 
 function deletaItem(id_produto) {
-    const id_usuario = localStorage.getItem('id_usuario');
+    const id_usuario = sessionStorage.getItem('id_usuario');
 
     fetch('/deletaItem', {
         method: 'DELETE',
@@ -112,5 +123,26 @@ function deletaItem(id_produto) {
     .catch(error => console.error('Erro ao remover produto do carrinho:err', error));
 
 }
+
+
+function finalizarCompra() {    
+
+document.getElementById('finalizarCompra').addEventListener('click', async () => {
+
+    const confirmacao =confirm('Deseja finalizar a compra?');
+
+    if (!confirmacao) {
+        return;
+    }
+    await fetch('/finalizarCompra', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carrinho)
+    })
+}
+
+)}
 
 carregarProdutos();

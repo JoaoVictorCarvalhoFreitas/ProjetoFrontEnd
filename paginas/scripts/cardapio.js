@@ -9,7 +9,7 @@ function adEventList(){
 
     const adicionaCarrinhoProdutos = async (element) => {
         console.log('Adicionando produto ao carrinho');
-        const usuario = localStorage.getItem('id_usuario');
+        const usuario = sessionStorage.getItem('id_usuario');
         const idProduto = element.getAttribute('data-id');
         const quantidade = element.parentElement.querySelector('#prodQuantidade').value;
         
@@ -41,14 +41,7 @@ function adEventList(){
             body: JSON.stringify({id_usuario: usuario , id_produto: idProduto, quantidade: quantidade, preco: resp.preco}),
          })
             .then(resp => resp.json())
-            .then(data => {
-                if (data.success) {
-                    
-                    alert('Produto adicionado ao carrinho!' + data);
-                } else {
-                    alert('Erro ao adicionar produto ao carrinho');
-                }
-            })
+            .then(data => {console.log("data"+ data)})
             .catch(error => console.error('Erro ao adicionar produto ao carrinho:', error));
     }catch(error){
         console.log(error);
@@ -61,7 +54,7 @@ function adEventList(){
                 <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                 <div class="card-body">
                     <h5 class="card-title" id="prodNome" >${prod.nome}</h5>
-                    <p class=" produtoText">${prod.descricao}</p>
+                    <p class="produtoText">${prod.descricao}</p>
 
                     <div class="arquivo-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -79,7 +72,6 @@ function adEventList(){
         </div>
         `;
     }
-    const produtosList = []
 
     const carregarProdutos = async () => {
         try {
@@ -90,6 +82,7 @@ function adEventList(){
             menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
             // Agora que os produtos foram carregados, adicionar os event listeners
             adEventList();
+            mostrarDescricao();
 
         } catch (error) {
             console.error('Erro ao carregar produtos:', error);
@@ -108,12 +101,36 @@ function adEventList(){
 
 // Função para mostrar a descrição
 
+function mostrarDescricao(){
 
-// const descricaoProduto = document.querySelectorAll(".produtoText");
-// console.log(descricaoProduto)
-// const iconButton = document.querySelectorAll(".arquivo-icon");
-// console.log(iconButton)
-// let buttonActive = false;
+    const iconButton = document.querySelectorAll(".arquivo-icon");
+    const descricaoProduto = document.querySelectorAll(".produtoText");
+
+    iconButton.forEach((element) => {
+        console.log(descricaoProduto)
+        console.log(iconButton)
+        let buttonActive = true;
+        element.addEventListener("click", () => {
+            if (buttonActive == false) {
+                descricaoProduto.style = "-webkit-line-clamp: 2;"
+                // Link do icon da seta
+                iconButton.forEach( (element) => {element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                    </svg>`;
+                    buttonActive = true;})
+                
+            } else {
+                descricaoProduto.style = "-webkit-line-clamp: 5;"
+                // Link do icon da seta
+                iconButton.forEach( (element) => {element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                    </svg>`;
+                    buttonActive = false;})
+            }
+            
+        })
+})
+
 // iconButton.addEventListener("click", () =>{
 //     if (buttonActive == false) {
 //         descricaoProduto.classList.remove("produtoText")
@@ -132,6 +149,6 @@ function adEventList(){
 //     }
 // });
 
-
+}
 
 

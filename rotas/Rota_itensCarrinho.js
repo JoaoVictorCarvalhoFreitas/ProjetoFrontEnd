@@ -4,6 +4,7 @@ import { where } from "sequelize";
 const rota_itensCarrinho = Router();
 
 rota_itensCarrinho
+
     .get('/itensCarrinho/:id', async (req,res) =>{
         const itens = await itensCarrinho.findAll({where: {id_usuario: req.params.id} }) ;
         const produtos = await Promise.all(itens.map(async (item) => {

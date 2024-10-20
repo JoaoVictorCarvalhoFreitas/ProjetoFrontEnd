@@ -83,18 +83,23 @@ const sequelize = ssequelize;
       },
       status: {
         type: DataTypes.INTEGER,
+        defaultValue:1
       },
       valor_total: {
         type: DataTypes.DOUBLE,
+        allowNull: false,
       },
       entrega: {
         type: DataTypes.BOOLEAN,
+        allowNull: false
       },
       fk_Usuario_id_usuario: {
         type: DataTypes.INTEGER,
       },
     }, {
       tableName: 'Pedido',
+      
+
     });
     
     const Telefone = sequelize.define('Telefone', {

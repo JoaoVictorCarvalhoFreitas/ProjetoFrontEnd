@@ -164,9 +164,9 @@ async function login(event) {
             }
         })
         .then(id_usuario => {
-            localStorage.setItem('email', email)
-            localStorage.setItem('senha',senha)
-            localStorage.setItem('id_usuario', id_usuario)
+            sessionStorage.setItem('email', email)
+            sessionStorage.setItem('senha',senha)
+            sessionStorage.setItem('id_usuario', id_usuario)
             location.href = "index.html"
 
         })
