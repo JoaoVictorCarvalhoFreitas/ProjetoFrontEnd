@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: var(--marrom);
+    background-color: var(--cremeescuro);
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -33,14 +33,14 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 .left-side {
-    background-color:var(--creme) ;
+    background-color:var(--marrom) ;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     gap: 1vi;
     width: 18vi;
-    box-shadow: 3px 0px rgba(0, 0, 0, 0.213); ;
+    box-shadow: 3px 0px rgb(224, 205, 169); ;
 
     img {
         width: 18vi;
@@ -56,17 +56,16 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 
     a {
+        border-radius: 0.5vi;
         font-size: 1.5vi;
-        color:var(--marrom);
+        color:var(--creme);
         text-decoration: none;
-        width: 100%;
+        width: 50%;
         text-align: center;
-        border-top: 0.1vi  solid var(--bege-escuro);
-        border-bottom: 0.1vi  solid var(--bege-escuro);
     }
 
     a:hover {
-        background-color:rgb(142, 91, 49) ;
+        background-color:rgb(171, 110, 59) ;
         color:var(--creme);
     }
     a:active {
@@ -94,12 +93,12 @@ input[type="number"]::-webkit-outer-spin-button {
             h1 {
                 font-size: 2.5vi;
                 font-family: Merriweather, sans-serif;    
-                color: var(--creme);
+                color: var(--marrom);
                 margin: 0 0 0 1.5vi;
 
             }
             p {
-                color: var(--creme);
+                color: var(--marrom);
                 margin:0;
                 padding:1vi 0 0 1vi;
                 font-size: 1.2vi;
@@ -112,10 +111,10 @@ input[type="number"]::-webkit-outer-spin-button {
         width: 80%;
         justify-content: space-around;
         align-items: center;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.196);
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.212);
         border-radius: 0.5vi;
         height: 3vi;
-        background-color: var(--cremeescuro);
+        background-color: var(--marromclaro);
 
         .search-bar {
             display: flex;
@@ -156,12 +155,41 @@ input[type="number"]::-webkit-outer-spin-button {
                 display: none;
             }
         }
-        .select:hover{
+        #categoriaProduto {
+            border: none;
+        }
+        #categoriaProduto:hover{
             cursor:pointer;
+        }
+        #categoriaProduto:active{
+            background-color: var(--intermediario);
+        }
+        #categoriaProduto:focus {
+            border: none;
+            outline: none;
+        }
+        #Produto {
+            background-color: var(--creme);
+            box-shadow: 1px 1px 1px 1px rgba(142, 86, 40, 0.413);
+            display: flex;
+            border: none;
+            border-radius: 0.5vi;
+            width: 10%;
+            height: 70%;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 1vi;
+            img {
+                height: 90%;
+                margin-bottom: 0.1vi;
+            }
+        }
+        #Produto:hover {
+            cursor: pointer;
             transform: scale(1.05);
         }
-        .select:active{
-            background-color: var(--intermediario);
+        #Produto:active {
+            transform: scale(0.95);
         }
     }
     .lower-side {
@@ -248,7 +276,8 @@ input[type="number"]::-webkit-outer-spin-button {
             }
             #nomeProduto,#descricaoProduto,#imagemUrlProduto,#Modal_categoriaProduto,#precoProduto {
                 width: 80% ;
-            }
+                }
+            }   
     }
 }
 
