@@ -1,7 +1,5 @@
 import express from 'express';
 import ssequelize from './modelosBD/bdDeclaracao.js'
-import { Produto, Usuario, Pedido, Telefone, ItemPedido, Carrinho } from './modelosBD/tabelasBd.js';
-
 import path from 'path';
 
 import rota_produtos from './rotas/Rota_produtos.js';
