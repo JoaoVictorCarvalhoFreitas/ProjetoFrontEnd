@@ -48,7 +48,6 @@ function adEventList(){
 
     function criarCardProduto(prod) {
         return `
-        <div class="col-md-4 mb-4" id="prodDiv1">
             <div class="card card-menu" id="prodDiv2" >
                 <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                 <div class="card-body">
@@ -68,7 +67,6 @@ function adEventList(){
                     </div>
                 </div>
             </div>
-        </div>
         `;
     }
 
@@ -77,7 +75,7 @@ function adEventList(){
             const resp = await fetch('/produtos');
             const produtos = await resp.json();
             
-            const menuContainer = document.getElementById('menuContainer');
+            const menuContainer = document.getElementById('prodDiv1');
             menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
             // Agora que os produtos foram carregados, adicionar os event listeners
             adEventList();
