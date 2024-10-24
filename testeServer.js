@@ -11,8 +11,8 @@ import rota_carrinho from './rotas/Rota_Carrinho.js';
 import rota_itensCarrinho from './rotas/Rota_itensCarrinho.js';
 
 
-
 const sequelize = ssequelize
+
 
 const port = 3000;
 
@@ -36,4 +36,5 @@ sequelize.sync().then(() => {
     app.listen(3000, () => {
       console.log(`Server running at http://localhost:${port}`);
     });
+    
 });
