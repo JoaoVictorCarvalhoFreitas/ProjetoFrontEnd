@@ -118,9 +118,9 @@ function deletaItem(id_produto) {
             alert('Produto removido do carrinho!');
             carrinho.forEach((e)=>{
                 if(e.id_produto == id_produto){
+                    console.log(id_produto)
                     console.log(carrinho)
-                    carrinho.splice(carrinho.indexOf(e),1)
-                    console.log(carrinho)
+
                 }
             })
         } else {

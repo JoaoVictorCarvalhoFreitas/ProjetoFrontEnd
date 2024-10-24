@@ -18,10 +18,10 @@ rota_itensCarrinho
         try{    
             const id_produto= parseInt(req.body.id_produto);
             const id_usuario = parseInt(req.body.id_usuario);
-            const quantidade = parseInt(req.body.quantidade);
             const preco = parseFloat(req.body.preco);
 
-            const item = await itensCarrinho.create({id_produto, id_usuario, quantidade, preco});
+            const item = await itensCarrinho.create({id_produto, id_usuario, preco});
+            
             res.json(item);
         }catch(error){
             res.send({error: error.message});

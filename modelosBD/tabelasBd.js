@@ -188,6 +188,7 @@ const sequelize = ssequelize;
     timestamps: false,
 
 
+
  });
   
   
