@@ -101,8 +101,7 @@ function criarCardProduto(prod){
     ${prod.nome}
     </td>
     <td>${prod.categoria}</td>
-    <td>${prod.quantidade}</td>
-    <td>${prod.preco}</td>
+    <td>R$${prod.preco}</td>
     <td>
         <button class="botaoEditar" data-id="${prod.id_produto}">Editar</button>
         <button class="botaoDeletar" data-id="${prod.id_produto}" >Excluir</button>
