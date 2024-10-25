@@ -48,7 +48,6 @@ function adEventList(){
 
     function criarCardProduto(prod) {
         return `
-        <div class="col-md-4 mb-4" id="prodDiv1">
             <div class="card card-menu" id="prodDiv2" >
                 <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                 <div class="card-body">
@@ -68,7 +67,6 @@ function adEventList(){
                     </div>
                 </div>
             </div>
-        </div>
         `;
     }
 
@@ -77,7 +75,7 @@ function adEventList(){
             const resp = await fetch('/produtos');
             const produtos = await resp.json();
             
-            const menuContainer = document.getElementById('menuContainer');
+            const menuContainer = document.getElementById('prodDiv2');
             menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
             // Agora que os produtos foram carregados, adicionar os event listeners
             adEventList();
@@ -104,26 +102,31 @@ function mostrarDescricao() {
     const descricaoProdutos = document.querySelectorAll(".produtoText");
 
     iconButtons.forEach((element, index) => {
-        let buttonActive = true;
+        // Inicializa o estado do botão usando um atributo data
+        element.dataset.active = "true";
 
         element.addEventListener("click", () => {
             const descricaoProduto = descricaoProdutos[index]; // Relaciona o ícone com a descrição correspondente
 
-            if (!buttonActive) {
-                descricaoProduto.style.webkitLineClamp = "2"; // Define a exibição limitada a 2 linhas
-                element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                    <path d="M3.204 5h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0L2.451 6.659A1 1 0 0 1 3.204 5z"/>
-                    </svg>`; // Seta para baixo
-                buttonActive = true;
-            } else {
+            if (element.dataset.active === "true") {
                 descricaoProduto.style.webkitLineClamp = "5"; // Mostra mais linhas da descrição
                 element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
                     <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                    </svg>`; // Seta para cima
-                buttonActive = false;
+                </svg>`; // Seta para cima
+                element.dataset.active = "false"; // Atualiza o estado
+            } else {
+                descricaoProduto.style.webkitLineClamp = "2"; // Define a exibição limitada a 2 linhas
+                element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0L2.451 6.659A1 1 0 0 1 3.204 5z"/>
+                </svg>`; // Seta para baixo
+                element.dataset.active = "true"; // Atualiza o estado
             }
         });
     });
 }
+
+// Chama a função após o DOM estar completamente carregado
+document.addEventListener("DOMContentLoaded", mostrarDescricao);
+
 
 
