@@ -196,8 +196,15 @@ input[type="number"]::-webkit-outer-spin-button {
         width: 80%;
         table {
             border-collapse: separate;
+            border-spacing: 0;
             thead {
                 background-color: var(--intermediario);
+                tr th:first-child{
+                    border-top-left-radius: 1vi;
+                }
+                tr th:last-child{
+                    border-top-right-radius: 1vi;
+                }
             }
             td{
                 text-align: center;
@@ -208,6 +215,14 @@ input[type="number"]::-webkit-outer-spin-button {
             }
             td:first-child,th:first-child{
                 width: 0.5%;
+            }
+            tbody{
+                tr:last-child td:first-child{
+                    border-bottom-left-radius: 1vi;
+                }
+                tr:last-child td:last-child{
+                    border-bottom-right-radius: 1vi;
+                }
             }
         }
     }
