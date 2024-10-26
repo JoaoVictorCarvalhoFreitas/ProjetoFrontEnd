@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { itensCarrinho, Produto } from "../modelosBD/tabelasBd.js";
-import { where } from "sequelize";
 const rota_itensCarrinho = Router();
 
 rota_itensCarrinho
@@ -21,7 +20,7 @@ rota_itensCarrinho
             const preco = parseFloat(req.body.preco);
 
             const item = await itensCarrinho.create({id_produto, id_usuario, preco});
-            
+
             res.json(item);
         }catch(error){
             res.send({error: error.message});
