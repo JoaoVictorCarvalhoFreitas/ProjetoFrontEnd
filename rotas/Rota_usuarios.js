@@ -6,6 +6,7 @@ rota_usuarios
     .get('/usuarios', async (req, res) => {
     const usuarios = await Usuario.findAll();
     res.json(usuarios);
+    
   })
     .post('/login', async (req, res) => {
     const { email, senha } = req.body;
@@ -27,6 +28,8 @@ rota_usuarios
     const { id } = req.params.id;
     const usuario = await Usuario.findByPk(id);
     return usuario ? res.json(usuario) : res.status(404).end();
+    
+
   })
     .put('/usuarios/:id', async (req, res) => {
     const { id } = req.params.id;

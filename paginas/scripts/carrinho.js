@@ -116,6 +116,13 @@ function deletaItem(id_produto) {
     .then(data => {
         if (data.success) {
             alert('Produto removido do carrinho!');
+            carrinho.forEach((e)=>{
+                if(e.id_produto == id_produto){
+                    console.log(id_produto)
+                    console.log(carrinho)
+
+                }
+            })
         } else {
             alert('Erro ao remover produto do carrinho');
         }

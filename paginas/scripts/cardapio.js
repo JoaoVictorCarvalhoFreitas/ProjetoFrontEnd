@@ -11,10 +11,9 @@ function adEventList(){
         console.log('Adicionando produto ao carrinho');
         const usuario = sessionStorage.getItem('id_usuario');
         const idProduto = element.getAttribute('data-id');
-        const quantidade = element.parentElement.querySelector('#prodQuantidade').value;
+        
         
         console.log('idProduto:', idProduto);
-        console.log('quantidade:', quantidade);
         console.log('usuario:', usuario);
     try{
 
@@ -38,7 +37,7 @@ function adEventList(){
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify({id_usuario: usuario , id_produto: idProduto, quantidade: quantidade, preco: resp.preco}),
+            body: JSON.stringify({id_usuario: usuario , id_produto: idProduto,preco: resp.preco}),
          })
             .then(resp => resp.json())
             .then(data => {console.log("data"+ data)})
@@ -49,7 +48,6 @@ function adEventList(){
 
     function criarCardProduto(prod) {
         return `
-        <div class="col-md-4 mb-4" id="prodDiv1">
             <div class="card card-menu" id="prodDiv2" >
                 <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                 <div class="card-body">
@@ -69,7 +67,6 @@ function adEventList(){
                     </div>
                 </div>
             </div>
-        </div>
         `;
     }
 
@@ -78,7 +75,7 @@ function adEventList(){
             const resp = await fetch('/produtos');
             const produtos = await resp.json();
             
-            const menuContainer = document.getElementById('menuContainer');
+            const menuContainer = document.getElementById('prodDiv2');
             menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
             // Agora que os produtos foram carregados, adicionar os event listeners
             adEventList();
@@ -100,55 +97,36 @@ function adEventList(){
 
 
 // Função para mostrar a descrição
+function mostrarDescricao() {
+    const iconButtons = document.querySelectorAll(".arquivo-icon");
+    const descricaoProdutos = document.querySelectorAll(".produtoText");
 
-function mostrarDescricao(){
+    iconButtons.forEach((element, index) => {
+        // Inicializa o estado do botão usando um atributo data
+        element.dataset.active = "true";
 
-    const iconButton = document.querySelectorAll(".arquivo-icon");
-    const descricaoProduto = document.querySelectorAll(".produtoText");
-
-    iconButton.forEach((element) => {
-        console.log(descricaoProduto)
-        console.log(iconButton)
-        let buttonActive = true;
         element.addEventListener("click", () => {
-            if (buttonActive == false) {
-                descricaoProduto.style = "-webkit-line-clamp: 2;"
-                // Link do icon da seta
-                iconButton.forEach( (element) => {element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            const descricaoProduto = descricaoProdutos[index]; // Relaciona o ícone com a descrição correspondente
+
+            if (element.dataset.active === "true") {
+                descricaoProduto.style.webkitLineClamp = "5"; // Mostra mais linhas da descrição
+                element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
                     <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                    </svg>`;
-                    buttonActive = true;})
-                
+                </svg>`; // Seta para cima
+                element.dataset.active = "false"; // Atualiza o estado
             } else {
-                descricaoProduto.style = "-webkit-line-clamp: 5;"
-                // Link do icon da seta
-                iconButton.forEach( (element) => {element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                    </svg>`;
-                    buttonActive = false;})
+                descricaoProduto.style.webkitLineClamp = "2"; // Define a exibição limitada a 2 linhas
+                element.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0L2.451 6.659A1 1 0 0 1 3.204 5z"/>
+                </svg>`; // Seta para baixo
+                element.dataset.active = "true"; // Atualiza o estado
             }
-            
-        })
-})
-
-// iconButton.addEventListener("click", () =>{
-//     if (buttonActive == false) {
-//         descricaoProduto.classList.remove("produtoText")
-//         // Link do icon da seta
-//         iconButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-//         <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-//         </svg>`;
-//         buttonActive = true;
-//     } else {
-//         descricaoProduto.classList.add("produtoText")
-//         // Link do icon da seta
-//         iconButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-//         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-//         </svg>`;
-//         buttonActive = false;
-//     }
-// });
-
+        });
+    });
 }
+
+// Chama a função após o DOM estar completamente carregado
+document.addEventListener("DOMContentLoaded", mostrarDescricao);
+
 
 

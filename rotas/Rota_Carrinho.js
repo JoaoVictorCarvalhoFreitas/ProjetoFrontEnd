@@ -1,9 +1,6 @@
 import { Router } from "express";
 import { Carrinho } from "../modelosBD/tabelasBd.js";
-import { Produto } from "../modelosBD/tabelasBd.js";
-import { Usuario } from "../modelosBD/tabelasBd.js";
-import { itensCarrinho } from "../modelosBD/tabelasBd.js";
-import { where } from "sequelize";
+
 
 const rota_carrinho = Router();
 
