@@ -7,6 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
 }
 
 header {
@@ -18,8 +19,8 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgb(232, 224, 209);
     z-index: 1000;
+    transition: background-color 0.3s; /* Suaviza a transição de cor */
 }
 
 .navbar.show {
@@ -27,6 +28,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+}
+
+/* Nova classe para navbar quando a página é rolada */
+.navbar.scrolled {
+    background-color: rgb(232, 224, 209); /* Cor mais escura ao rolar a página */
 }
 
 .navbar-logo img {
@@ -54,8 +60,56 @@ header {
 }
 /* FIM NAV-BAR */  
 
+/* INTRO BANNER */
+.intro-banner {
+    position: relative;
+    background-image: url('src/cafe_pront.png'); /* Altere para o caminho da sua imagem */
+    background-size: cover; /* A imagem vai cobrir toda a área do banner */
+    background-position: center; /* Centraliza a imagem */
+    color: #ffffff; /* Cor do texto para contraste */
+    padding: 8% 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px 0;
+    margin-top: 0px;
+}
+
+/* Camada escura de overlay */
+.intro-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem com 50% de opacidade */
+    z-index: 1;
+}
+
+/* Coloca o conteúdo acima da camada escura */
+.intro-banner * {
+    position: relative;
+    z-index: 2;
+}
+
+.intro-banner p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-banner h4 {
+    font-style: oblique;
+}
+
+
+/*FIM INTRO BANNER*/
+
 /* CORPO DO SITE */
-.container {
+
+/*Container 1*/
+.container1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,7 +117,6 @@ header {
     padding: 20px;
     background-color: #f8f8f8; /* Cor de fundo suave */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
 .top-left {
@@ -80,12 +133,12 @@ header {
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra do texto */
 }
 
-.middle-image {
+.middle-image1 {
     flex: 2;
     text-align: 20px;
 }
 
-.middle-image img {
+.middle-image1 img {
     max-width: 70%;
     height: auto;
     border-radius: 80px;
@@ -100,6 +153,55 @@ header {
 }
 
 .right-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+/*Container 2*/
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 20px;
+    background-color: #f8f8f8; /* Cor de fundo suave */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.top-right {
+    flex: 1;
+    text-align: left;
+    padding: 1px;
+}
+
+.top-right h2 {
+    font-size: 10; /* Tamanho da fonte aumentado */
+    color: #4a4a4a; /* Cor mais escura */
+    margin-bottom: 300px;
+    font-family: 'Arial', sans-serif; /* Fonte */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra do texto */
+}
+
+.middle-image2 {
+    flex: 2;
+    text-align: 20px;
+}
+
+.middle-image2 img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 80px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 70px;
+}
+
+.left-text {
+    flex: 1;
+    margin-left: 300px;
+    padding: 2px;
+    color: #4a4a4a;
+}
+
+.left-text p {
     font-size: 1.2rem;
     line-height: 1.5;
 }
@@ -148,4 +250,4 @@ footer {
     color: #000000;
     margin-top: 10px;
 }
-/* FIM RODAPE */    
+/* FIM RODAPE */ 
