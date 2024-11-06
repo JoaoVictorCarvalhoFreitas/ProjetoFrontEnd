@@ -1,15 +1,33 @@
-let count = 1
-document.getElementById("radio1").checked = true;
+// Nav-bar
+const navbar = document.getElementById('navbar');
 
-setInterval(function(){
-    nextImage()
-}, 6000);
-
-function nextImage(){
-    count++;
-    if(count > 4){
-        count = 1
-    }
-
-    document.getElementById("radio" + count).checked = true;
+function showNavbar() {
+    navbar.classList.add('show');
 }
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+document.getElementById('logo-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    scrollToTop();
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset === 0) {
+        showNavbar();
+    }
+});
+
+window.addEventListener('mousemove', (event) => {
+    if (event.clientY < 50) {
+        showNavbar();
+    }
+});
+
+window.onload = showNavbar;
+

@@ -1,105 +1,151 @@
-
-
-
-
-
-
-
-
-/* CAROUSEL*/
-.slider {
-    margin: 0 auto;
-    width: 800px;
-    height: 400px;
-    overflow: hidden;
-
+/* NAV-BAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.slides {
-    width: 400%;
-    height: 400px;
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgb(232, 224, 209);
+}
+
+.navbar {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(232, 224, 209);
+    z-index: 1000;
+}
+
+.navbar.show {
+    display: flex; /* Mostra quando a classe show é adicionada */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 17px;
+    padding: 10px 10px;
+    margin: 0 5px;
+    border: 2px solid #333;
+    border-radius: 0.5rem;
+    border-color: rgb(116, 75, 41);
+    background-color: rgb(116, 75, 41);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-links a:hover {
+    padding: 14px 14px;
+    border-radius: 0.6rem;
+}
+/* FIM NAV-BAR */  
+
+/* CORPO DO SITE */
+.container {
     display: flex;
-}
-.slides input {
-    display: none;
-}
-.slide {
-    width: 25%;
-    position: relative;
-    transition: 2s;
-}
-.slide img {
-    width: 900px;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 20px;
+    background-color: #f8f8f8; /* Cor de fundo suave */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
-.manual-navigation {
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
+.top-left {
+    flex: 1;
+    text-align: left;
+    padding: 1px;
+}
+
+.top-left h2 {
+    font-size: 10; /* Tamanho da fonte aumentado */
+    color: #4a4a4a; /* Cor mais escura */
+    margin-bottom: 300px;
+    font-family: 'Arial', sans-serif; /* Fonte */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra do texto */
+}
+
+.middle-image {
+    flex: 2;
+    text-align: 20px;
+}
+
+.middle-image img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 80px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-text {
+    flex: 1;
+    margin-right: 300px;
+    padding: 2px;
+    color: #4a4a4a;
+}
+
+.right-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+/*FIM DO CORPO DO SITE*/
+
+/* RODAPE */
+footer {
+    background-color: rgb(232, 224, 209);
+    color: #000000;
+    padding: 25px;
+    text-align: center;
+}
+
+.footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
 }
 
-.manual-btn {
-    border: 2px solid white ;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition:.05s;
+.footer-column {
+    flex: 1;
+    text-align: left;
+    padding: 0 250px;
 }
 
-.manual-btn:not(:Last-child) {
-    margin-right: 14px;
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.manual-btn:hover {
-    background-color: white;
+.footer-column a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+    transition: color 0.3s;
 }
 
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-#radio2:checked ~ .first {
-    margin-left: -25%;
-}
-#radio3:checked ~ .first {
-    margin-left: -50%;
-}
-#radio4:checked ~ .first {
-    margin-left: -75%;
+.footer-column a:hover {
+    color: #000000;
 }
 
-.navigation-auto div{
-    border: 2px solid #20a6ff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .05s;
+.footer-phrase {
+    font-size: 16px;
+    font-style: italic;
+    color: #000000;
+    margin-top: 10px;
 }
-
-.navigation-auto {
-    position: absolute;
-    width: 814px;
-    margin-top: 360px;
-    display: flex;
-    justify-content: center;
-}
-
-.navigation-auto div:not(Last-child) {
-    margin-right: 14px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-    background-color: white;
-}
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-    background-color: white;
-}
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-    background-color: white;
-}
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-    background-color: white;
-}
-/*FIM DO CAROUSEL*/
-
+/* FIM RODAPE */    
