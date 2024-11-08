@@ -51,4 +51,26 @@ window.addEventListener('mousemove', (event) => {
 
 window.onload = showNavbar;
 
+//Menu opções
+function showMenu(menuId) {
+    // Oculta todos os menus
+    const menus = document.querySelectorAll('.menu-conteudo');
+    menus.forEach(menu => menu.style.display = 'none');
+
+    // Exibe o menu selecionado
+    const selectedMenu = document.getElementById(menuId);
+    selectedMenu.style.display = 'grid';
+
+    // Remove a classe 'active' de todos os botões
+    const buttons = document.querySelectorAll('.menu-buttons button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Adiciona a classe 'active' ao botão clicado
+    const activeButton = document.querySelector(`.menu-buttons button[onclick="showMenu('${menuId}')"]`);
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+}
+
+
 

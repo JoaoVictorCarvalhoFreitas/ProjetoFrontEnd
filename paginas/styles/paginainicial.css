@@ -205,6 +205,55 @@ header {
     font-size: 1.2rem;
     line-height: 1.5;
 }
+
+.menu {
+    text-align: center;
+    
+}
+
+.menu p {
+    color: #4a4a4a;
+    padding: 20px;
+    width: 700px;
+    margin-left:390px;
+    font-size: 1.2rem;
+}
+
+.tabela {
+    flex: 1;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.tabela button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    transition: 0.3s;
+    position: relative;
+    display: inline-block; /* Garante que o botão seja tratado como bloco inline */
+}
+
+.tabela button.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Ajuste fino para posicionar a linha */
+    left: 10%;
+    right: 10%;
+    height: 3px; /* Espessura da linha */
+    background-color: rgb(116, 75, 41); /* Cor da linha */
+    border-radius: 1px;
+}
+
+.tabela button:hover {
+    color: #4a4a4a;   
+}
+
+
+
 /*FIM DO CORPO DO SITE*/
 
 /* RODAPE */
