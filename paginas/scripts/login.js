@@ -140,10 +140,7 @@ async function login(event) {
 
     const email = document.getElementById('emailLogin').value;
     const senha = document.getElementById('senhaLogin').value;
-
-
-
-
+    
     try{
         const usuarioBD = await fetch('/login', {
             method: 'POST',

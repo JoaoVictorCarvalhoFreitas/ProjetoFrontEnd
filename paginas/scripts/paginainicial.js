@@ -74,3 +74,23 @@ function showMenu(menuId) {
 
 
 
+const email = sessionStorage.getItem("email")?sessionStorage.getItem('email'):false
+const senha = sessionStorage.getItem('senha')? sessionStorage.getItem('senha'): false
+
+if (email && senha) {
+    document.getElementById("barra2").style.display = "none"
+    document.getElementById("barra1").style.display = "block"   
+    if(email == "adm"){
+        document.getElementById("cadastrarProduto").style.display = "block"
+    }else{
+        document.getElementById("cadastrarProduto").style.display = "none"
+    }
+
+} else {
+
+    document.getElementById("barra2").style.display = "block"
+    document.getElementById("barra1").style.display = "none" 
+}
+
+
+
