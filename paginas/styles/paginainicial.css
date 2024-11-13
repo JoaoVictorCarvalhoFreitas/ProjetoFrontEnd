@@ -1,105 +1,302 @@
-
-
-
-
-
-
-
-
-/* CAROUSEL*/
-.slider {
-    margin: 0 auto;
-    width: 800px;
-    height: 400px;
-    overflow: hidden;
-
+/* NAV-BAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.slides {
-    width: 400%;
-    height: 400px;
-    display: flex;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
 }
-.slides input {
-    display: none;
+
+header {
+    background-color: rgb(232, 224, 209);
 }
-.slide {
-    width: 25%;
+
+.navbar {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s; /* Suaviza a transição de cor */
+}
+
+.navbar.show {
+    display: flex; /* Mostra quando a classe show é adicionada */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Nova classe para navbar quando a página é rolada */
+.navbar.scrolled {
+    background-color: rgb(232, 224, 209); /* Cor mais escura ao rolar a página */
+}
+
+.navbar-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 17px;
+    padding: 10px 10px;
+    margin: 0 5px;
+    border: 2px solid #333;
+    border-radius: 0.5rem;
+    border-color: rgb(116, 75, 41);
+    background-color: rgb(116, 75, 41);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-links a:hover {
+    padding: 14px 14px;
+    border-radius: 0.6rem;
+}
+/* FIM NAV-BAR */  
+
+/* INTRO BANNER */
+.intro-banner {
     position: relative;
-    transition: 2s;
-}
-.slide img {
-    width: 900px;
+    background-image: url('src/cafe_pront.png'); /* Altere para o caminho da sua imagem */
+    background-size: cover; /* A imagem vai cobrir toda a área do banner */
+    background-position: center; /* Centraliza a imagem */
+    color: #ffffff; /* Cor do texto para contraste */
+    padding: 8% 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px 0;
+    margin-top: 0px;
 }
 
-.manual-navigation {
+/* Camada escura de overlay */
+.intro-banner::before {
+    content: "";
     position: absolute;
-    width: 800px;
-    margin-top: -40px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem com 50% de opacidade */
+    z-index: 1;
+}
+
+/* Coloca o conteúdo acima da camada escura */
+.intro-banner * {
+    position: relative;
+    z-index: 2;
+}
+
+.intro-banner p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-banner h4 {
+    font-style: oblique;
+}
+
+
+/*FIM INTRO BANNER*/
+
+/* CORPO DO SITE */
+
+/*Container 1*/
+.container1 {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 20px;
+    background-color: #f8f8f8; /* Cor de fundo suave */
+    border-radius: 10px; /* Bordas arredondadas */
 }
 
-.manual-btn {
-    border: 2px solid white ;
-    padding: 5px;
-    border-radius: 10px;
+.top-left {
+    flex: 1;
+    text-align: left;
+    padding: 1px;
+}
+
+.top-left h2 {
+    font-size: 10; /* Tamanho da fonte aumentado */
+    color: #4a4a4a; /* Cor mais escura */
+    margin-bottom: 300px;
+    font-family: 'Arial', sans-serif; /* Fonte */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra do texto */
+}
+
+.middle-image1 {
+    flex: 2;
+    text-align: 20px;
+}
+
+.middle-image1 img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 80px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-text {
+    flex: 1;
+    margin-right: 300px;
+    padding: 2px;
+    color: #4a4a4a;
+}
+
+.right-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+/*Container 2*/
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 20px;
+    background-color: #f8f8f8; /* Cor de fundo suave */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.top-right {
+    flex: 1;
+    text-align: left;
+    padding: 1px;
+}
+
+.top-right h2 {
+    font-size: 10; /* Tamanho da fonte aumentado */
+    color: #4a4a4a; /* Cor mais escura */
+    margin-bottom: 300px;
+    font-family: 'Arial', sans-serif; /* Fonte */
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra do texto */
+}
+
+.middle-image2 {
+    flex: 2;
+    text-align: 20px;
+}
+
+.middle-image2 img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 80px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 70px;
+}
+
+.left-text {
+    flex: 1;
+    margin-left: 300px;
+    padding: 2px;
+    color: #4a4a4a;
+}
+
+.left-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.menu {
+    text-align: center;
+    
+}
+
+.menu p {
+    color: #4a4a4a;
+    padding: 20px;
+    width: 700px;
+    margin-left:390px;
+    font-size: 1.2rem;
+}
+
+.tabela {
+    flex: 1;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.tabela button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
     cursor: pointer;
-    transition:.05s;
+    background-color: #f8f8f8;
+    transition: 0.3s;
+    position: relative;
+    display: inline-block; /* Garante que o botão seja tratado como bloco inline */
 }
 
-.manual-btn:not(:Last-child) {
-    margin-right: 14px;
-}
-
-.manual-btn:hover {
-    background-color: white;
-}
-
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-#radio2:checked ~ .first {
-    margin-left: -25%;
-}
-#radio3:checked ~ .first {
-    margin-left: -50%;
-}
-#radio4:checked ~ .first {
-    margin-left: -75%;
-}
-
-.navigation-auto div{
-    border: 2px solid #20a6ff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .05s;
-}
-
-.navigation-auto {
+.tabela button.active::after {
+    content: "";
     position: absolute;
-    width: 814px;
-    margin-top: 360px;
+    bottom: -2px; /* Ajuste fino para posicionar a linha */
+    left: 10%;
+    right: 10%;
+    height: 3px; /* Espessura da linha */
+    background-color: rgb(116, 75, 41); /* Cor da linha */
+    border-radius: 1px;
+}
+
+.tabela button:hover {
+    color: #4a4a4a;   
+}
+
+
+
+/*FIM DO CORPO DO SITE*/
+
+/* RODAPE */
+footer {
+    background-color: rgb(232, 224, 209);
+    color: #000000;
+    padding: 25px;
+    text-align: center;
+}
+
+.footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
 }
 
-.navigation-auto div:not(Last-child) {
-    margin-right: 14px;
+.footer-column {
+    flex: 1;
+    text-align: left;
+    padding: 0 250px;
 }
 
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-    background-color: white;
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-    background-color: white;
-}
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-    background-color: white;
-}
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-    background-color: white;
-}
-/*FIM DO CAROUSEL*/
 
+.footer-column a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #000000;
+}
+
+.footer-phrase {
+    font-size: 16px;
+    font-style: italic;
+    color: #000000;
+    margin-top: 10px;
+}
+/* FIM RODAPE */ 

@@ -1,15 +1,76 @@
-let count = 1
-document.getElementById("radio1").checked = true;
+const navbar1 = document.getElementById('navbar');
 
-setInterval(function(){
-    nextImage()
-}, 6000);
-
-function nextImage(){
-    count++;
-    if(count > 4){
-        count = 1
-    }
-
-    document.getElementById("radio" + count).checked = true;
+// Função para mostrar a navbar
+function showNavbar() {
+    navbar.classList.add('show');
 }
+
+// Altera o estilo da navbar ao rolar a página
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) { // Limite para a mudança de cor
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Mostra a navbar ao mover o mouse perto do topo da página
+window.addEventListener('mousemove', (event) => {
+    if (event.clientY < 50) {
+        showNavbar();
+    }
+});
+
+function showNavbar() {
+    navbar.classList.add('show');
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+document.getElementById('logo-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    scrollToTop();
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset === 0) {
+        showNavbar();
+    }
+});
+
+window.addEventListener('mousemove', (event) => {
+    if (event.clientY < 50) {
+        showNavbar();
+    }
+});
+
+window.onload = showNavbar;
+
+//Menu opções
+function showMenu(menuId) {
+    // Oculta todos os menus
+    const menus = document.querySelectorAll('.menu-conteudo');
+    menus.forEach(menu => menu.style.display = 'none');
+
+    // Exibe o menu selecionado
+    const selectedMenu = document.getElementById(menuId);
+    selectedMenu.style.display = 'grid';
+
+    // Remove a classe 'active' de todos os botões
+    const buttons = document.querySelectorAll('.menu-buttons button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Adiciona a classe 'active' ao botão clicado
+    const activeButton = document.querySelector(`.menu-buttons button[onclick="showMenu('${menuId}')"]`);
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+}
+
+
+
