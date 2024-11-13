@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', ()=> {
 // Função para adicionar produto ao carrinho
-function adEventList(){
-    document.querySelectorAll('.comprar-btn').forEach(element => {
-        element.addEventListener('click', () => adicionaCarrinhoProdutos(element));
-    });
-}
+    function adEventList(){
+        document.querySelectorAll('.comprar-btn').forEach(element => {
+            element.addEventListener('click', () => adicionaCarrinhoProdutos(element));
+        });
+    }   
 
 
     const adicionaCarrinhoProdutos = async (element) => {
@@ -27,10 +27,7 @@ function adEventList(){
             .then(resp => resp.json());
             console.log(resp);
 
-            
-
         
-
         fetch('/adicionaCarrinho', { 
             method: 'POST',
             headers: {
@@ -48,6 +45,7 @@ function adEventList(){
 
     function criarCardProduto(prod) {
         return `
+        <div class="col-md-4 mb-4" id="prodDiv1">
             <div class="card card-menu" id="prodDiv2" >
                 <img src="${prod.imagemUrl || 'https://via.placeholder.com/300'}" class="card-img-top" alt="${prod.nome}">
                 <div class="card-body">
@@ -67,6 +65,7 @@ function adEventList(){
                     </div>
                 </div>
             </div>
+            </div>
         `;
     }
 
@@ -75,7 +74,7 @@ function adEventList(){
             const resp = await fetch('/produtos');
             const produtos = await resp.json();
             
-            const menuContainer = document.getElementById('prodDiv2');
+            const menuContainer = document.getElementById('menuContainer');
             menuContainer.innerHTML = produtos.map(criarCardProduto).join('');
             // Agora que os produtos foram carregados, adicionar os event listeners
             adEventList();
@@ -91,12 +90,6 @@ function adEventList(){
 });
 
 
-
-
-
-
-
-// Função para mostrar a descrição
 function mostrarDescricao() {
     const iconButtons = document.querySelectorAll(".arquivo-icon");
     const descricaoProdutos = document.querySelectorAll(".produtoText");
@@ -124,9 +117,5 @@ function mostrarDescricao() {
         });
     });
 }
-
-// Chama a função após o DOM estar completamente carregado
-document.addEventListener("DOMContentLoaded", mostrarDescricao);
-
 
 
