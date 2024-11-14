@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/listaUsuarios.css">
+    <link rel="icon" type="image/svg+xml" href="src/coffee-bean-filled-roast-brew-svgrepo-com.svg">
+    <script src="scripts/listaUsuarios.js"></script>
+    <title>ByteCafé</title>
+</head>
+<body>
+    <div class="left-side">
+        <img src="src/logo_NoBackground_fixed.png" alt="Logo">
+        <br>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cardapio.html">Produtos</a>
+            <a href="newproduct.html" class="cadastrar">Cadastrar Produto</a>
+        </nav>
+    </div>
+    <div class="right-side">
+        <div class="upper-side">
+            <h1>Lista de Usuáriso</h1>
+        </div>
+        <div class="middle-side">
+            <div class="search-bar">
+                <input type="text" id="searchbar" placeholder="ID ou Nome" onfocus="search()">
+                <img id="clear" src="src/clear-svgrepo-com.svg" style="display:none;">
+                <img src="src/search-svgrepo-com (1).svg" alt="Buscar">
+            </div>
+        </div>
+        <div class="lower-side">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                    </tr>
+                </thead>
+                <tbody id="TabelaCorpo">
+                    <!-- Exemplo de linha, deve ser gerado dinamicamente -->
+                    <tr>
+                        <td>11</td>
+                        <td>Nome do Usuário</td>
+                        <td>Comida</td>
+                        <td>12</td>
+                    </tr>
+                    <!---->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("requisitos").addEventListener("blur", ()=> {
         requisitos.style.display = "none";
     });
+    document.getElementById("mostrarLogin").addEventListener("click", mostrarLogin);
 
-    document.getElementById("mostrarLogin_Cadastro").addEventListener("click", mostrarLogin_Cadastro);
+    document.getElementById("mostrarCadastro").addEventListener("click", mostrarLogin_Cadastro);
 
     document.getElementById("mostrarSenha").addEventListener("click", mostrarSenhaLogin);
 
@@ -54,7 +55,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
     }
-
+    function mostrarLogin() {
+        var img = document.getElementById("image");
+        var login = document.getElementById("login-side");
+        var cadastro = document.getElementById("cadastro-side");
+        cadastro.style.opacity = 0;
+        setTimeout(HideCadastro,600);
+        img.style.borderRadius = "0 1vi 1vi 0"
+        img.style.transition = "ease-out 0.5s"
+        img.style.transform = "translateX(100%)"
+        setTimeout(row, 600);
+        login.style.opacity = 1;
+        setTimeout(ShowLogin, 600);
+    }
     //esconde a aba login
     function HideLogin() {
         var login = document.getElementById("login-side");

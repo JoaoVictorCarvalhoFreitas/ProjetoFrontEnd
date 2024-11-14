@@ -1,28 +1,22 @@
 html {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    background-color: var(--cremeescuro);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    overflow: hidden;
     font-family: Merriweather, sans-serif;
 }
 
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none ; 
+body {
+    width: 100%;
+    height: 100%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--creme);
+    display: flex;
+    flex-direction: row;
 }
-
-
 :root {
     --intermediario: rgba(210, 179, 147, 0.837);
     --cremeescuro: rgb(225, 211, 185);
@@ -30,7 +24,6 @@ input[type="number"]::-webkit-outer-spin-button {
     --marrom:      rgb(121, 77, 41);
     --marromclaro: rgb(142, 86, 40);
 }
-
 
 .left-side {
     background-color:var(--marrom) ;
@@ -40,7 +33,8 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     gap: 1vi;
     width: 18vi;
-    box-shadow: 3px 0px rgb(224, 205, 169); ;
+    height: 100vh;
+    box-shadow: 2px 0px rgba(163, 149, 124, 0.613); ;
 
     img {
         width: 18vi;
@@ -62,6 +56,7 @@ input[type="number"]::-webkit-outer-spin-button {
         text-decoration: none;
         width: 50%;
         text-align: center;
+        margin-bottom: 1vi;
     }
 
     a:hover {
@@ -71,6 +66,9 @@ input[type="number"]::-webkit-outer-spin-button {
     a:active {
         transform: scale(0.9);
         width: 111%;
+    }
+    .cadastrar {
+        width: 80%;
     }
 }
 
@@ -244,125 +242,5 @@ input[type="number"]::-webkit-outer-spin-button {
                 }
             }
         }
-    }
-}
-
-#prodImagem{
-    max-width: 6vi;
-    max-height: 6vi;
-}
-
-
-.modal-new {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .fundo {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.189);
-        display: flex;
-        justify-content: center;
-        align-items: start;
-        .modal {
-            position: relative;
-            background-color: var(--creme);
-            margin-top: 2.5vi;
-            width: 30%;
-            height: 55%;
-            border-radius: 1vi;
-            animation: slidedown 0.3s ease-in-out;
-            .modal-header {
-                display:flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5vi;
-                height: 13% ;
-                h2 {
-                    margin:0;
-                }
-                button {
-                    border: none;
-                    background-color: transparent;
-                    img {
-                        width: 2.5vi;
-                        filter: invert(50%);
-                    }
-                }
-                button:hover {
-                    cursor: pointer;
-                    img {
-                        filter: invert(30%);
-                    };
-                }
-            }
-            .nome-input,#divdescricaoProduto,.img-input,.categoria-input,.preco-input {
-                display: flex;
-                flex-direction: column;
-                padding-left: 0.5vi;
-                label {
-                    padding-bottom:0.5vi ;
-                }
-            }
-            #nomeProduto,#descricaoProduto,#imagemUrlProduto,#Modal_categoriaProduto,#precoProduto {
-                width: 80% ;
-                }
-            }   
-    }
-}
-
-textarea {
-    resize: none;
-}
-
-@keyframes slideup {
-    0% {
-        bottom: 0vi;
-    }
-    50% {
-        bottom: 50vi;
-    }
-    100% {
-        bottom:100vi ;
-    }
-}
-
-@keyframes slidedown {
-    0% {
-        bottom:100vi ;
-    }
-    50% {
-        bottom: 50vi;
-    }
-    100% {
-        bottom: 0vi;
-    }
-}
-
-@keyframes blur-in {
-    0% {
-        opacity: 0%;
-    }
-    50% {
-        opacity: 50%;
-    }
-    100% {
-        opacity: 100%;
-    }
-} 
-
-@keyframes blur-out {
-    0% {
-        opacity: 100%;
-    }
-    50% {
-        opacity: 50%;
-    }
-    100% {
-        opacity: 0%;
     }
 }
