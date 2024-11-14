@@ -22,13 +22,13 @@
                 <a href="cardapio.html">Cardápio</a>
                 <a href="carrinho.html">Carrinho</a>
                 <a href="login.html" onclick="limparLocalStorage()">sair</a>
+                <a href="newproduct.html" id="cadastrarProduto">Cadastrar Produto</a>
             </div>
             <div class="navbar-links" id="barra2">
                 <a href="login.html">Cardápio</a>
                 <a href="login.html">Carrinho</a>
-                <a href="login.html">login</a>
+                <a href="login.html"  >login</a>
             </div>
-            
         </nav>
     </header>
 
@@ -42,7 +42,7 @@
     <!-- Seções de Conteúdo -->
     <div class="container1">
         <div class="top-left">
-            <h2>Entre na nossa loja!</h2>
+            <h2>Navegue na nossa loja!</h2>
         </div>
         <div class="middle-image1">
             <img src="src/capuccino_png.png" alt="Capuccino">
@@ -54,22 +54,25 @@
 
     <div class="container2">
         <div class="left-text">
-            <p>Este é um texto explicativo que fica à direita da imagem. Aqui você pode adicionar mais informações ou descrever o que está na imagem.</p>
+            <p>Venha conhecer nosso espaço e se encantar com uma seleção especial de cafés. Cada xícara é preparada com paixão e qualidade, oferecendo uma experiência única para todos os amantes de café. Estamos esperando por você!</p>
         </div>
         <div class="middle-image2">
             <img src="src/capuccino_png.png" alt="Capuccino">
         </div>
-        <div class="top-right">
-            <h2>Venha experimentar o Capuccino</h2>
-        </div>
     </div>
-    <br>
+
     <!--Menu-->
     <div class="container3">
         <div class="menu">
-            <h1>Cafés</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, minima quae doloribus quas recusandae quibusdam iure, odio excepturi error a ex magnam voluptatibus earum tenetur laboriosam. Deleniti, eveniet vero. Numquam!</p>
+            <div class="tituloMenu">
+                <h1>Cafés</h1>
+                <div class="conteudoMenu">
+                    <p id="textoMenu">Nossa seleção de cafés foi criada para agradar a diferentes paladares. Oferecemos desde as opções quentes e acolhedoras até os gelados e frappés, ideais para um toque refrescante. Cada bebida é preparada com atenção aos detalhes, para que você possa aproveitar o melhor do café em qualquer estação.</p>
+                    <img src="src/mocha.png" id="imagemMenu">                   
+                </div>
+            </div>
         </div>
+        
         <div class="tabela menu-buttons">
             <button onclick="showMenu('quentes')">Quentes</button>
             <button onclick="showMenu('gelados')">Gelados</button>
@@ -78,18 +81,51 @@
         
     <!-- Seção dos menus -->
     <div id="quentes" class="menu-conteudo">
-        <p>Café americano</p>
+        <ul id="quente" class="cafe-lista">
+            <li><strong >Espresso</strong> <p>Café concentrado feito com água quente forçada através de grãos moídos finamente.</p></li>
+            <li><strong>Americano</strong> <p>Um espresso diluído com água quente, criando um café mais suave e menos concentrado.</p></li>
+            <li><strong>Cappuccino</strong> <p>Feito com espresso, leite vaporizado e espuma de leite, em partes iguais.</p></li>
+            <li><strong>Latte</strong> <p>Feito com mais leite vaporizado e uma fina camada de espuma, mais cremoso e suave.</p></li>
+            <li><strong>Mocha</strong> <p>Mistura de espresso, chocolate quente e leite vaporizado, coberto com chantilly.</p></li>
+            <li><strong>Macchiato</strong> <p>Um espresso "manchado" com uma pequena quantidade de espuma de leite.</p></li>
+            <li><strong>Café com Leite</strong> <p>Semelhante ao latte, mas com quantidades iguais de café e leite quente.</p></li>
+            <li><strong>Flat White</strong> <p>Espresso com uma quantidade menor de leite vaporizado, sem muita espuma.</p></li>
+          </ul>
     </div>
 
     <div id="gelados" class="menu-conteudo">
-
+        <ul id="gelado" class="cafe-lista">
+            <li><strong>Café Gelado</strong> <p>Uma opção refrescante para os dias quentes, onde o espresso é combinado com gelo e leite, criando uma bebida equilibrada e revigorante.</p></li>
+            <li><strong>Café Gelado com Chocolate</strong> <p>Uma deliciosa fusão de café gelado e chocolate, criando uma experiência doce e refrescante, ideal para os amantes de café e chocolate.</p></li>
+            <li><strong>Café Gelado com Baunilha</strong> <p>Espresso gelado misturado com leite e um toque de essência de baunilha, criando uma bebida doce e refrescante para quem aprecia um sabor mais suave.</p></li>
+            <li><strong>Cold Brew</strong> <p>Café preparado com água fria por um longo período, resultando em um sabor suave e menos ácido. Servido gelado, é uma bebida refrescante e deliciosa para quem prefere algo mais suave e menos amargo.</p></li>
+            <li><strong>Iced Caramel latte</strong> <p>Espresso gelado, leite frio e um toque de calda de caramelo, criando uma bebida cremosa e doce com uma leve nota de caramelo, perfeita para quem busca um sabor mais adocicado.</p></li>          
+            <li><strong>Iced Espresso Tonic</strong> <p>Uma combinação inusitada de espresso gelado e água tônica, com gelo. A mistura do café com o toque amargo da tônica cria uma experiência única e refrescante.</p></li>
+            <li><strong>Iced Caramel Latte</strong> <p>Espresso gelado, leite frio e um toque de calda de caramelo, criando uma bebida cremosa e doce com uma leve nota de caramelo, perfeita para quem busca um sabor mais adocicado.</p></li>
+            <li><strong>Iced Mocha</strong> <p>Espresso gelado misturado com leite e calda de chocolate, uma opção doce e refrescante.
+            </p></li>               
+          </ul>
     </div>
 
     <div id="frappes" class="menu-conteudo">
+        <ul class="cafe-lista">
+            <li><strong>Frappé de Café Simples</strong> <p>Café gelado batido com gelo, leite e açúcar, criando uma bebida cremosa e refrescante.</p></li>
+            <li><strong>Frappé de Chocolate</strong> <p>Mistura de café gelado com leite e calda de chocolate, criando uma bebida doce e cremosa com sabor de chocolate.</p></li>
+            <li><strong>Frappé de Baunilha</strong> <p>Café gelado com leite e essência de baunilha, batido até ficar cremoso, trazendo um sabor suave e doce.</p></li>
+            <li><strong>Frappé de Caramelo</strong> <p>Café gelado combinado com leite e calda de caramelo, criando uma bebida doce e cremosa com um toque de caramelo.</p></li>
+            <li><strong>Frappé de Morango</strong> <p>Leite, morangos frescos e café gelado batidos juntos, criando uma bebida doce e refrescante com sabor de morango.</p></li>
+            <li><strong>Frappé de Café com Creme</strong> <p>Café gelado batido com creme de leite, resultando em uma bebida mais rica e cremosa.</p></li>
+            <li><strong>Frappé de Menta</strong> <p>Café gelado combinado com xarope de menta e leite, criando uma bebida refrescante com um toque de frescor.</p></li>
+            <li><strong>Frappé de Café com Pistache</strong> <p>Café gelado batido com leite e pasta de pistache, proporcionando um sabor rico e nutty, perfeito para quem gosta de sabores mais sofisticados.</p></li>
+            </p></li>
+          </ul>
+    </div>
 
+    <div class="SobreNos">
+        <strong>Sobre nós</strong>
+        <p id="textoSobreNos">No ByteCafé, acreditamos que o café é mais do que uma bebida: é um momento, uma pausa no dia, uma fonte de inspiração. Nossa missão é trazer para você uma experiência única em cada xícara, com grãos cuidadosamente selecionados e um sabor que transforma a sua rotina em algo especial.</p>
     </div>
 </div>
-
 
     <!-- Rodapé -->
     <footer>

@@ -72,6 +72,12 @@ function showMenu(menuId) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Chama a função para exibir o primeiro menu automaticamente ao carregar a página
+    showMenu('quentes');
+});
+
+
 
 
 const email = sessionStorage.getItem("email")?sessionStorage.getItem('email'):false
