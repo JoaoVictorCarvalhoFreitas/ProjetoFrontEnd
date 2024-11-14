@@ -142,7 +142,7 @@ async function login(event) {
     const senha = document.getElementById('senhaLogin').value;
     
     try{
-        const usuarioBD = await fetch('/login', {
+        await fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -151,21 +151,26 @@ async function login(event) {
             body: JSON.stringify({email: email, senha: senha})
         })      
         .then(resp => {
+            console.log(resp)
             if(resp.status == 401){
                 alert("Usuario não encontrado")
-
-                return;
+                return; 
                 
-            }else if(resp.status == 200){
-                return resp.json();         
+            }else if(resp.status == 200){   
+                return resp.json(); 
             }
         })
         .then(id_usuario => {
+            if(id_usuario == undefined){
+                alert("Usuario não encontrado")
+                return;
+            }
+            console.log(id_usuario)
+            sessionStorage.setItem('id_usuario', id_usuario)
             sessionStorage.setItem('email', email)
             sessionStorage.setItem('senha',senha)
-            sessionStorage.setItem('id_usuario', id_usuario)
-            location.href = "index.html"
-
+            location.href = 'index.html';
+            
         })
         .catch(error => console.log(error));
     }catch(error){

@@ -10,7 +10,7 @@ rota_usuarios
   })
     .post('/login', async (req, res) => {
     const { email, senha } = req.body;
-    const usuario = await Usuario.findOne({ where: { email, senha } });
+    const usuario = await Usuario.findOne({ where: { email: email } });
     if (!usuario) {
         return res.status(404).end();
     }
