@@ -40,6 +40,11 @@ header {
     width: auto;
 }
 
+.navbar-links {
+    display: flex;
+    flex-direction: row ;
+}
+
 .navbar-links a {
     color: white;
     text-decoration: none;

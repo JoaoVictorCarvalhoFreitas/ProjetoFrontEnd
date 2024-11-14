@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${user.id}</td>
+                        <td>${user.id_usuario}</td>
                         <td>${user.nome}</td>
                         <td>${user.email}</td>
                         <td>${user.senha}</td>

@@ -79,16 +79,16 @@ const senha = sessionStorage.getItem('senha')? sessionStorage.getItem('senha'): 
 
 if (email && senha) {
     document.getElementById("barra2").style.display = "none"
-    document.getElementById("barra1").style.display = "block"   
+    document.getElementById("barra1").style.display = "flex"   
     if(email == "adm"){
-        document.getElementById("cadastrarProduto").style.display = "block"
+        document.getElementById("cadastrarProduto").style.display = "flex"
     }else{
         document.getElementById("cadastrarProduto").style.display = "none"
     }
 
 } else {
 
-    document.getElementById("barra2").style.display = "block"
+    document.getElementById("barra2").style.display = "flex"
     document.getElementById("barra1").style.display = "none" 
 }
 

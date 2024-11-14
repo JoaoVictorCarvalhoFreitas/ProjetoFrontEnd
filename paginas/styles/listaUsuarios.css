@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--creme);
+    background-color: var(--cremeescuro);
     display: flex;
     flex-direction: row;
 }
@@ -213,6 +213,7 @@ body {
             }
             td{
                 text-align: center;
+                height: 1.5vi;
             }
             td,th{
                 border: 0.1vi solid var(--marromclaro);
