@@ -178,6 +178,7 @@ const sequelize = ssequelize;
     quantidade: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 1,
     },
     preco: {
       type: DataTypes.DOUBLE,

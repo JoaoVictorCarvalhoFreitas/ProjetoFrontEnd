@@ -82,19 +82,21 @@ async function precoTotal() {
 
 
     let totalProdutos = 0;
+
     carrinho.forEach(prod => {
         totalProdutos += (prod.preco * prod.quantidade);
     })
+    console.log(carrinho)
+    console.log(totalProdutos)
+    console.log(carrinho.length)
+    if(carrinho.length == 0){
+        totalProdutos = 0;
+    }
 
     subtotal.innerHTML = `R$ ${totalProdutos.toFixed(2)}`;
     frete.innerHTML = 'R$ 10,00';
     total.innerHTML = `R$ ${(totalProdutos + 10).toFixed(2)}`;
-
-
-
 }
-
-
 
 function adicionaEventoDeleta(){
     document.querySelectorAll('.deletar-produto').forEach(element => {
@@ -103,8 +105,8 @@ function adicionaEventoDeleta(){
 }
 
 function deletaItem(id_produto) {
-    const id_usuario = sessionStorage.getItem('id_usuario');
 
+    const id_usuario = sessionStorage.getItem('id_usuario');
     fetch('/deletaItem', {
         method: 'DELETE',
         headers: {
@@ -126,11 +128,14 @@ function deletaItem(id_produto) {
         } else {
             alert('Erro ao remover produto do carrinho');
         }
-    }).finally(() => carregarProdutos())
+    })
+    .finally(() => {
+        carregarProdutos()
+        location.reload()
+    })
     .catch(error => console.error('Erro ao remover produto do carrinho:err', error));
 
 }
-
 
 function finalizarCompra() {    
 

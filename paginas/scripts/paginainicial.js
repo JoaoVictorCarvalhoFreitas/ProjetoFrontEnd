@@ -92,5 +92,12 @@ if (email && senha) {
     document.getElementById("barra1").style.display = "none" 
 }
 
+function limparLocalStorage(){
+    sessionStorage.clear()
+    
+    location.reload()
+
+}
+
 
 

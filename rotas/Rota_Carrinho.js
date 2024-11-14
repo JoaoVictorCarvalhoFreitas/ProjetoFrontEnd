@@ -10,7 +10,6 @@ rota_carrinho
         res.json(carrinho);
     })
     .post('/produtosCarrinho', async (req,res) =>{
-
         
         const carrinho = await Carrinho.findOne({where: {id_usuario: req.body.id_usuario}});
         

@@ -5,6 +5,7 @@ const rota_usuarios = Router();
 rota_usuarios  
     .get('/usuarios', async (req, res) => {
     const usuarios = await Usuario.findAll();
+    // console.log(usuarios);
     res.json(usuarios);
     
   })
